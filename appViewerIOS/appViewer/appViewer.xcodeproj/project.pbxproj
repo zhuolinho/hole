@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0662714E1D7B083800EF3D8F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662714D1D7B083800EF3D8F /* API.m */; };
 		361B06001D2EAE13000ABA8F /* personSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 361B05FF1D2EAE13000ABA8F /* personSetting.m */; };
 		361B06031D2EB77B000ABA8F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 361B06021D2EB77B000ABA8F /* SearchResult.m */; };
 		3635E03D1D221A1300225404 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3635E03C1D221A1300225404 /* AVFoundation.framework */; };
@@ -165,6 +166,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0662714C1D7B083800EF3D8F /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		0662714D1D7B083800EF3D8F /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		361B05FE1D2EAE13000ABA8F /* personSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = personSetting.h; sourceTree = "<group>"; };
 		361B05FF1D2EAE13000ABA8F /* personSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = personSetting.m; sourceTree = "<group>"; };
 		361B06011D2EB77B000ABA8F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
@@ -529,6 +532,8 @@
 				36F2C5171D01E63E00893B95 /* Util */,
 				36F2C4E11D00A88A00893B95 /* AppDelegate.h */,
 				36F2C4E21D00A88A00893B95 /* AppDelegate.m */,
+				0662714C1D7B083800EF3D8F /* API.h */,
+				0662714D1D7B083800EF3D8F /* API.m */,
 				36F2C4E41D00A88A00893B95 /* ViewController.h */,
 				36F2C4E51D00A88A00893B95 /* ViewController.m */,
 				36F2C4E71D00A88A00893B95 /* Main.storyboard */,
@@ -1111,7 +1116,7 @@
 				TargetAttributes = {
 					36F2C4DA1D00A88A00893B95 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 6DN2G5VF3L;
+						DevelopmentTeam = 4VV79NCCT9;
 					};
 					36F2C4F31D00A88A00893B95 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1288,6 +1293,7 @@
 				36F2C6791D03C67F00893B95 /* MJRefreshStateHeader.m in Sources */,
 				36F2C5131D00A8E600893B95 /* MainViewController.m in Sources */,
 				36F2C67D1D03C67F00893B95 /* UIScrollView+MJRefresh.m in Sources */,
+				0662714E1D7B083800EF3D8F /* API.m in Sources */,
 				36F2C6CC1D03CA6D00893B95 /* NSString+YW.m in Sources */,
 				36F2C6A41D03C67F00893B95 /* UIWebView+AFNetworking.m in Sources */,
 				36F2C6C61D03CA6D00893B95 /* NSArray+YW.m in Sources */,
