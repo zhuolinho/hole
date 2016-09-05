@@ -1116,7 +1116,7 @@
 				TargetAttributes = {
 					36F2C4DA1D00A88A00893B95 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 4VV79NCCT9;
+						DevelopmentTeam = 34CFT5D8E3;
 					};
 					36F2C4F31D00A88A00893B95 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1457,7 +1457,7 @@
 					"$(PROJECT_DIR)/appViewer/output",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = SJTU.appViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.super.appviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos9.2;
@@ -1483,7 +1483,7 @@
 					"$(PROJECT_DIR)/appViewer/output",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = SJTU.appViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.super.appviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos9.2;

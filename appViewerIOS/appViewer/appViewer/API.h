@@ -40,6 +40,7 @@
 - (void)addLotteryRecord;
 - (void)addCollectionTeacher:(NSString *)uid;
 - (void)deleteCollectionTeacher:(NSString *)uid;
+- (void)uploadImage:(UIImage *)img;
 
 + (UIImage *)getPicByKey:(NSString *)key;
 + (void)setPicByKey:(NSString *)key pic:(UIImage *)pic;

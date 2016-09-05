@@ -150,7 +150,19 @@ static NSArray *chiefTeacher;
 - (void)deleteCollectionTeacher:(NSString *)uid {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *yo_token = [ud objectForKey:@"yo_token"];
-    [self post:@"deleteCollectionTeacher.action" dic:@{@"token": yo_token, @"teacherUID": uid}];}
+    [self post:@"deleteCollectionTeacher.action" dic:@{@"token": yo_token, @"teacherUID": uid}];
+}
+
+- (void)uploadImage:(UIImage *)img {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *yo_token = [ud objectForKey:@"token"];
+    NSData *imgData = UIImageJPEGRepresentation(img, 1.0);
+    NSData *base64Img = [imgData base64EncodedDataWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSString *stringImg = [[NSString alloc]initWithData:base64Img encoding:NSUTF8StringEncoding];
+    stringImg = [stringImg stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
+    stringImg = [NSString stringWithFormat:@"data:image/jpeg;base64,%@", stringImg];
+    [self post:@"uploadImage.action" dic:@{@"base64File": stringImg, @"token": yo_token}];
+}
 
 - (void)post:(NSString *)action dic:(NSDictionary *)dic {
     NSString *str = [NSString stringWithFormat:@"%@/appviewer/api/%@", HOST, action];
