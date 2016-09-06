@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0662714E1D7B083800EF3D8F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662714D1D7B083800EF3D8F /* API.m */; };
+		068F048E1D7E8C2800B41EBA /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */; };
+		068F04911D7E8C7700B41EBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04901D7E8C7700B41EBA /* CFNetwork.framework */; };
+		068F04931D7E8C8A00B41EBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */; };
+		068F04951D7E8C9600B41EBA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04941D7E8C9600B41EBA /* CoreTelephony.framework */; };
+		068F04971D7E8CA000B41EBA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04961D7E8CA000B41EBA /* SystemConfiguration.framework */; };
+		068F04991D7E8CA900B41EBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04981D7E8CA900B41EBA /* CoreGraphics.framework */; };
+		068F049B1D7E8CB400B41EBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F049A1D7E8CB400B41EBA /* Foundation.framework */; };
+		068F049D1D7E8CBA00B41EBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F049C1D7E8CBA00B41EBA /* UIKit.framework */; };
+		068F049F1D7E8CC800B41EBA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F049E1D7E8CC800B41EBA /* Security.framework */; };
+		068F04A11D7E8CDA00B41EBA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04A01D7E8CDA00B41EBA /* libz.tbd */; };
 		361B06001D2EAE13000ABA8F /* personSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 361B05FF1D2EAE13000ABA8F /* personSetting.m */; };
 		361B06031D2EB77B000ABA8F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 361B06021D2EB77B000ABA8F /* SearchResult.m */; };
 		3635E03D1D221A1300225404 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3635E03C1D221A1300225404 /* AVFoundation.framework */; };
@@ -168,6 +178,17 @@
 /* Begin PBXFileReference section */
 		0662714C1D7B083800EF3D8F /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		0662714D1D7B083800EF3D8F /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
+		068F048D1D7E8C2800B41EBA /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		068F04901D7E8C7700B41EBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		068F04941D7E8C9600B41EBA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		068F04961D7E8CA000B41EBA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		068F04981D7E8CA900B41EBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		068F049A1D7E8CB400B41EBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		068F049C1D7E8CBA00B41EBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		068F049E1D7E8CC800B41EBA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		068F04A01D7E8CDA00B41EBA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		361B05FE1D2EAE13000ABA8F /* personSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = personSetting.h; sourceTree = "<group>"; };
 		361B05FF1D2EAE13000ABA8F /* personSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = personSetting.m; sourceTree = "<group>"; };
 		361B06011D2EB77B000ABA8F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
@@ -451,12 +472,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068F04A11D7E8CDA00B41EBA /* libz.tbd in Frameworks */,
+				068F049F1D7E8CC800B41EBA /* Security.framework in Frameworks */,
+				068F049D1D7E8CBA00B41EBA /* UIKit.framework in Frameworks */,
+				068F049B1D7E8CB400B41EBA /* Foundation.framework in Frameworks */,
+				068F04991D7E8CA900B41EBA /* CoreGraphics.framework in Frameworks */,
+				068F04971D7E8CA000B41EBA /* SystemConfiguration.framework in Frameworks */,
+				068F04951D7E8C9600B41EBA /* CoreTelephony.framework in Frameworks */,
+				068F04931D7E8C8A00B41EBA /* CoreFoundation.framework in Frameworks */,
+				068F04911D7E8C7700B41EBA /* CFNetwork.framework in Frameworks */,
 				3635E03D1D221A1300225404 /* AVFoundation.framework in Frameworks */,
 				36FA018B1D18513000E14392 /* libavutil.a in Frameworks */,
 				36FA018F1D18513000E14392 /* libswresample.a in Frameworks */,
 				36F2C6A61D03C67F00893B95 /* libWeChatSDK.a in Frameworks */,
 				36F2C6A51D03C67F00893B95 /* libMobClickLibrary.a in Frameworks */,
 				36FA018D1D18513000E14392 /* libPods-NSLogger.a in Frameworks */,
+				068F048E1D7E8C2800B41EBA /* jpush-ios-2.1.8.a in Frameworks */,
 				36FA01891D18513000E14392 /* libavcodec.a in Frameworks */,
 				36FA01901D18513000E14392 /* libswscale.a in Frameworks */,
 				36FA018E1D18513000E14392 /* libPods.a in Frameworks */,
@@ -482,6 +513,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		068F048B1D7E8C2800B41EBA /* jpush */ = {
+			isa = PBXGroup;
+			children = (
+				068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */,
+				068F048D1D7E8C2800B41EBA /* JPUSHService.h */,
+			);
+			path = jpush;
+			sourceTree = "<group>";
+		};
+		068F048F1D7E8C3D00B41EBA /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				068F04A01D7E8CDA00B41EBA /* libz.tbd */,
+				068F049E1D7E8CC800B41EBA /* Security.framework */,
+				068F049C1D7E8CBA00B41EBA /* UIKit.framework */,
+				068F049A1D7E8CB400B41EBA /* Foundation.framework */,
+				068F04981D7E8CA900B41EBA /* CoreGraphics.framework */,
+				068F04961D7E8CA000B41EBA /* SystemConfiguration.framework */,
+				068F04941D7E8C9600B41EBA /* CoreTelephony.framework */,
+				068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */,
+				068F04901D7E8C7700B41EBA /* CFNetwork.framework */,
+				3635E03C1D221A1300225404 /* AVFoundation.framework */,
+			);
+			name = framework;
+			sourceTree = "<group>";
+		};
 		36565F911D06698500A9D200 /* layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,7 +563,8 @@
 		36F2C4D21D00A88A00893B95 = {
 			isa = PBXGroup;
 			children = (
-				3635E03C1D221A1300225404 /* AVFoundation.framework */,
+				068F048B1D7E8C2800B41EBA /* jpush */,
+				068F048F1D7E8C3D00B41EBA /* framework */,
 				36F2C4DD1D00A88A00893B95 /* appViewer */,
 				36F2C4F71D00A88A00893B95 /* appViewerTests */,
 				36F2C5021D00A88A00893B95 /* appViewerUITests */,
@@ -1455,6 +1513,7 @@
 					"$(PROJECT_DIR)/appViewer/ThirdPartLibrary/UMAnalytics_Sdk_3.6.6",
 					"$(PROJECT_DIR)/appViewer/ThirdPartLibrary/weixin",
 					"$(PROJECT_DIR)/appViewer/output",
+					"$(PROJECT_DIR)/jpush",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.super.appviewer;
@@ -1481,6 +1540,7 @@
 					"$(PROJECT_DIR)/appViewer/ThirdPartLibrary/UMAnalytics_Sdk_3.6.6",
 					"$(PROJECT_DIR)/appViewer/ThirdPartLibrary/weixin",
 					"$(PROJECT_DIR)/appViewer/output",
+					"$(PROJECT_DIR)/jpush",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.super.appviewer;
