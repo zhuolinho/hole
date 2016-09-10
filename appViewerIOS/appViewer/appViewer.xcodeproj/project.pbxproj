@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0662714E1D7B083800EF3D8F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662714D1D7B083800EF3D8F /* API.m */; };
+		066FF0761D8449CB00C3821E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066FF0751D8449CB00C3821E /* WebViewController.m */; };
 		068F048E1D7E8C2800B41EBA /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */; };
 		068F04911D7E8C7700B41EBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04901D7E8C7700B41EBA /* CFNetwork.framework */; };
 		068F04931D7E8C8A00B41EBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */; };
@@ -178,6 +179,8 @@
 /* Begin PBXFileReference section */
 		0662714C1D7B083800EF3D8F /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		0662714D1D7B083800EF3D8F /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		066FF0741D8449CB00C3821E /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		066FF0751D8449CB00C3821E /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		068F048D1D7E8C2800B41EBA /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		068F04901D7E8C7700B41EBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -593,6 +596,8 @@
 				0662714C1D7B083800EF3D8F /* API.h */,
 				0662714D1D7B083800EF3D8F /* API.m */,
 				36F2C4E41D00A88A00893B95 /* ViewController.h */,
+				066FF0741D8449CB00C3821E /* WebViewController.h */,
+				066FF0751D8449CB00C3821E /* WebViewController.m */,
 				36F2C4E51D00A88A00893B95 /* ViewController.m */,
 				36F2C4E71D00A88A00893B95 /* Main.storyboard */,
 				36F2C4EA1D00A88A00893B95 /* Assets.xcassets */,
@@ -1303,6 +1308,7 @@
 				36F2C65B1D03C67F00893B95 /* AFURLRequestSerialization.m in Sources */,
 				36F2C6801D03C67F00893B95 /* PMCalendarBackgroundView.m in Sources */,
 				36F2C67B1D03C67F00893B95 /* MJRefreshConst.m in Sources */,
+				066FF0761D8449CB00C3821E /* WebViewController.m in Sources */,
 				36F2C6831D03C67F00893B95 /* PMDimmingView.m in Sources */,
 				36F2C6CB1D03CA6D00893B95 /* HUDPromptToast.m in Sources */,
 				36F2C6D31D03CB3100893B95 /* Utils.m in Sources */,

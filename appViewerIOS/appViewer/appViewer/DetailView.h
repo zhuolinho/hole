@@ -11,4 +11,5 @@
 
 @interface DetailView : UIViewController
 @property (nonatomic,strong) NSNumber * entryID;
+@property NSString *videoURL;
 @end

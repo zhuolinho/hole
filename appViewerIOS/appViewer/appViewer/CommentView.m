@@ -10,6 +10,7 @@
 #import "head.h"
 #import "AddComment.h"
 #import "HttpHelper.h"
+#import "API.h"
 @interface CommentView()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @end
@@ -69,6 +70,49 @@
         cell.textLabel.text=@"点击评论";
         cell.textLabel.textAlignment=NSTextAlignmentCenter;
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    } else if (self.commentArr[indexPath.row-1][@"picturePaths"]) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+        UILabel * labelName = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 200, 26)];
+        labelName.text=self.commentArr[indexPath.row-1][@"nickname"];
+        [cell addSubview:labelName];
+        UIImageView * imgLine = [[UIImageView alloc] initWithFrame:CGRectMake(30, 35, SCREEN_WIDTH-130, 1)];
+        imgLine.backgroundColor=[UIColor grayColor];
+        [cell addSubview:imgLine];
+        UIImageView * imgLine1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 155, SCREEN_WIDTH, 3)];
+        imgLine1.backgroundColor=RGB(235, 245, 246);
+        [cell addSubview:imgLine1];
+        UILabel * detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 40, SCREEN_WIDTH-120, 20)];
+        detailLabel.text=self.commentArr[indexPath.row-1][@"content"];
+        detailLabel.textColor=[UIColor grayColor];
+        [cell addSubview:detailLabel];
+        UILabel * countLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-40, 15, 30, 30)];
+        NSNumber * countNumber=self.commentArr[indexPath.row-1][@"likeCount"];
+        NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+        NSString *countNumberStr = [numberFormatter stringFromNumber:countNumber];
+        countLabel.text=countNumberStr;
+        UIImageView * dianzhan = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-80, 15, 30, 30)];
+        dianzhan.userInteractionEnabled=YES;
+        dianzhan.tag = indexPath.row-1;
+        UITapGestureRecognizer *singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dianzhanPress:)];
+        [dianzhan addGestureRecognizer:singleTap1];
+        [dianzhan setImage:[UIImage imageNamed:@"dianzhan"]];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        [cell.contentView addSubview:dianzhan];
+        [cell.contentView addSubview:countLabel];
+        UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(30, 65, 80, 80)];
+        [cell addSubview:imgView];
+        NSString *imgURL = [self.commentArr[indexPath.row-1][@"picturePaths"] componentsSeparatedByString:@","][0];
+        NSString *str = [NSString stringWithFormat:@"%@/%@", HOST, imgURL];
+        NSURL *url = [NSURL URLWithString:str];
+        NSURLRequest *requst = [NSURLRequest requestWithURL:url];
+        [NSURLConnection sendAsynchronousRequest:requst queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+            if (connectionError == nil) {
+                UIImage *img = [UIImage imageWithData:data];
+                if (img) {
+                    imgView.image = img;
+                }
+            }
+        }];
     }else{
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
         
@@ -145,6 +189,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row == 0){
         return 40;
+    }
+    else if (self.commentArr[indexPath.row-1][@"picturePaths"]) {
+        return 160;
     }
     else{
         return 80;

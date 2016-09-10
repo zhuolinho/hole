@@ -9,6 +9,7 @@
 #import "DetailView.h"
 #import "head.h"
 #import "ImgDetailVC.h"
+#import "WebViewController.h"
 
 #define GAP_X ((SCREEN_WIDTH - 86)/3)
 #define GAP_Y ((SCREEN_WIDTH - 86)/3) * SCREEN_HEIGHT / SCREEN_WIDTH
@@ -226,6 +227,12 @@
         self.showHintLabel.text = infArr[0][@"version"] ;
     }
     [self.view addSubview:self.showHintLabel];
+    UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 70, 150, 21, 21)];
+    [playButton setBackgroundImage:[UIImage imageNamed:@"播放"] forState:UIControlStateNormal];
+    if (_videoURL) {
+        [self.view addSubview:playButton];
+    }
+    [playButton addTarget:self action:@selector(playButtonClick) forControlEvents:UIControlEventTouchUpInside];
     //NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
     //self.showHintLabel.text=[numberFormatter stringFromNumber:0];
     
@@ -250,6 +257,13 @@
         [self.view addSubview: self.versionImgArr[i]];
     }
 }
+
+- (void)playButtonClick {
+    WebViewController *vc = [[WebViewController alloc]init];
+    vc.url = _videoURL;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     int num = (int)(scrollView.contentOffset.x/SCREEN_WIDTH);
     NSLog(@"%d",num);

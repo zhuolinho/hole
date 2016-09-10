@@ -60,9 +60,9 @@
     }else{
         requestDic[@"categorySubID"]=self.categoryId;
     }
-    NSLog(@"%@",requestDic);
     [HttpHelper get:[NSString stringWithFormat:@"%@%@",AppViewUrl,@"getEntries.action"] params:requestDic success:^(id responseObj) {
         NSMutableDictionary* infDic=responseObj;
+        NSLog(@"%@",infDic);
         self.infArr = infDic[@"result"];
         if([self.infArr count] > 3){
             [self.scrollView setContentSize:CGSizeMake(0, SCREEN_HEIGHT+100*([self.infArr count]-3))];
@@ -236,6 +236,7 @@
     if([self.infArr count]>=tap.view.tag){
     DetailView * svc = [[DetailView alloc] init];
         NSString * id = self.infArr[tap.view.tag-1][@"id"];
+        svc.videoURL = self.infArr[tap.view.tag - 1][@"videoUrl"];
         svc.entryID=[NSNumber numberWithInt:[id intValue]];
         self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
         [self.navigationController pushViewController:svc animated:YES];

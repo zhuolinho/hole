@@ -28,7 +28,7 @@
     UIImageView * bgimg =[[UIImageView alloc] initWithFrame:self.view.bounds];
     [bgimg setImage:[UIImage imageNamed:@"bgf"]];
     [self.view addSubview:bgimg];
-    self.topImgView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 80, SCREEN_WIDTH-60, 300)];
+    self.topImgView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 80, SCREEN_WIDTH-60, 370)];
     self.topImgView.backgroundColor=[UIColor grayColor];
     self.topImgView.layer.cornerRadius=25;
     self.topImgView.alpha = 0.5;
@@ -36,7 +36,7 @@
     
     self.textView=[[UITextView alloc] initWithFrame:CGRectMake(30, 40,SCREEN_WIDTH-120, 150)];
     self.textView.layer.cornerRadius=15;
-    self.confirmButton=[[UIButton alloc] initWithFrame:CGRectMake(30, 250, SCREEN_WIDTH-120, 50)];
+    self.confirmButton=[[UIButton alloc] initWithFrame:CGRectMake(30, 300, SCREEN_WIDTH-120, 50)];
     [self.confirmButton setImage:[UIImage imageNamed:@"confirm"] forState:UIControlStateNormal];
     [self.confirmButton addTarget:self action:@selector(confirmButtonClick) forControlEvents:UIControlEventTouchUpInside];
     UILabel * sendLabel = [[UILabel alloc] initWithFrame:self.confirmButton.bounds];
@@ -46,11 +46,11 @@
     [self.view addSubview:self.topImgView];
     [self.topImgView addSubview:self.textView];
     [self.topImgView addSubview:self.confirmButton];
-    UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(50, 200, 50, 50)];
+    UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / 4 - 40, 215, 80, 50)];
     [addButton setImage:[UIImage imageNamed:@"confirm"] forState:UIControlStateNormal];
     [addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
     UILabel *addLabel = [[UILabel alloc]initWithFrame:addButton.bounds];
-    addLabel.text = @"➕";
+    addLabel.text = @"添加图片";
     addLabel.textAlignment = NSTextAlignmentCenter;
     [addButton addSubview:addLabel];
     [_topImgView addSubview:addButton];
@@ -58,10 +58,10 @@
     urAPI.delegate = self;
     imagePicker = [[UIImagePickerController alloc]init];
     imagePicker.delegate = self;
-    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(80, 400, 150, 150)];
+    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(3 * SCREEN_WIDTH / 4 - 70, 282, 80, 80)];
     imgView.userInteractionEnabled = YES;
     [self.view addSubview:imgView];
-    UIButton *closeButton = [[UIButton alloc]initWithFrame:CGRectMake(130, 0, 20, 20)];
+    UIButton *closeButton = [[UIButton alloc]initWithFrame:CGRectMake(60, 0, 20, 20)];
     [closeButton setTitle:@"x" forState:UIControlStateNormal];
     [closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
