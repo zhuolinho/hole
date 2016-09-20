@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064D91701D90DCC0002FE14B /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */; };
 		0662714E1D7B083800EF3D8F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662714D1D7B083800EF3D8F /* API.m */; };
 		066FF0761D8449CB00C3821E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066FF0751D8449CB00C3821E /* WebViewController.m */; };
-		068F048E1D7E8C2800B41EBA /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */; };
 		068F04911D7E8C7700B41EBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04901D7E8C7700B41EBA /* CFNetwork.framework */; };
 		068F04931D7E8C8A00B41EBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */; };
 		068F04951D7E8C9600B41EBA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04941D7E8C9600B41EBA /* CoreTelephony.framework */; };
@@ -177,12 +177,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		064D916D1D90DA98002FE14B /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		0662714C1D7B083800EF3D8F /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		0662714D1D7B083800EF3D8F /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		066FF0741D8449CB00C3821E /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		066FF0751D8449CB00C3821E /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
-		068F048D1D7E8C2800B41EBA /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		068F04901D7E8C7700B41EBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		068F04941D7E8C9600B41EBA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -481,6 +481,7 @@
 				068F049B1D7E8CB400B41EBA /* Foundation.framework in Frameworks */,
 				068F04991D7E8CA900B41EBA /* CoreGraphics.framework in Frameworks */,
 				068F04971D7E8CA000B41EBA /* SystemConfiguration.framework in Frameworks */,
+				064D91701D90DCC0002FE14B /* jpush-ios-2.1.8.a in Frameworks */,
 				068F04951D7E8C9600B41EBA /* CoreTelephony.framework in Frameworks */,
 				068F04931D7E8C8A00B41EBA /* CoreFoundation.framework in Frameworks */,
 				068F04911D7E8C7700B41EBA /* CFNetwork.framework in Frameworks */,
@@ -490,7 +491,6 @@
 				36F2C6A61D03C67F00893B95 /* libWeChatSDK.a in Frameworks */,
 				36F2C6A51D03C67F00893B95 /* libMobClickLibrary.a in Frameworks */,
 				36FA018D1D18513000E14392 /* libPods-NSLogger.a in Frameworks */,
-				068F048E1D7E8C2800B41EBA /* jpush-ios-2.1.8.a in Frameworks */,
 				36FA01891D18513000E14392 /* libavcodec.a in Frameworks */,
 				36FA01901D18513000E14392 /* libswscale.a in Frameworks */,
 				36FA018E1D18513000E14392 /* libPods.a in Frameworks */,
@@ -519,8 +519,8 @@
 		068F048B1D7E8C2800B41EBA /* jpush */ = {
 			isa = PBXGroup;
 			children = (
-				068F048C1D7E8C2800B41EBA /* jpush-ios-2.1.8.a */,
-				068F048D1D7E8C2800B41EBA /* JPUSHService.h */,
+				064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */,
+				064D916D1D90DA98002FE14B /* JPUSHService.h */,
 			);
 			path = jpush;
 			sourceTree = "<group>";
@@ -1180,6 +1180,11 @@
 					36F2C4DA1D00A88A00893B95 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 34CFT5D8E3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					36F2C4F31D00A88A00893B95 = {
 						CreatedOnToolsVersion = 7.2;
