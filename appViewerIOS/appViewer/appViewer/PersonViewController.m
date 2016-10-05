@@ -17,7 +17,11 @@
 #import "InterestVC.h"
 #import "MessageCenter.h"
 #include "personSetting.h"
-@interface PersonViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
+#import "API.h"
+#import "ForumViewController.h"
+@interface PersonViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate, APIProtocol> {
+    API *myAPI;
+}
 @property (nonatomic, strong) UITableView * PersonTbl;
 @property (nonatomic, strong) UIImageView *avaterImg;
 @property (nonatomic, strong) UILabel * username;
@@ -29,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden=NO;
+    self.title = @"个人中心";
     //[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];//[[UIBarButtonItem alloc] initWithTitle:@"Back" styleUIBarButtonItemStuleBorderd: target:nil action nil];(UIBarButtonItemStyle)    
     self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBG"]];
 //    self.floatView=[[UIImageView alloc] initWithFrame:CGRectMake(20, 70,  SCREEN_WIDTH-40, SCREEN_HEIGHT-90)];
@@ -40,6 +45,8 @@
 //    [self.view addSubview:self.floatView];
     //self.view.backgroundColor=[UIColor whiteColor];
     [self InitTbl];
+    myAPI = [[API alloc]init];
+    myAPI.delegate = self;
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -109,7 +116,7 @@
             cell.text=@"我的关注";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
-        if(indexPath.row == 3){
+        if(indexPath.row == 4){
             [cell.imageView setImage:[UIImage imageNamed:@"TrdXin3"]];
             cell.text = @"关于软件提前看";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -120,14 +127,19 @@
             cell.text = @"设置中心";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
-        if(indexPath.row == 4){
+        if(indexPath.row == 5){
             [cell.imageView setImage:[UIImage imageNamed:@"TrdXin1"]];
             cell.text = @"消息中心";
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
-        if(indexPath.row == 5){
+        if(indexPath.row == 6){
             [cell.imageView setImage:[UIImage imageNamed:@"TrdXin3"]];
             cell.text = @"退出登陆";
+        }
+        if (indexPath.row == 3) {
+            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin1"]];
+            cell.text = @"论坛";
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
 
     }
@@ -183,12 +195,12 @@
             }
 
         }
-        if(indexPath.row == 3){
+        if(indexPath.row == 4){
             AboutVC * svc = [[AboutVC alloc] init];
             self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
             [self.navigationController pushViewController:svc animated:NO];
         }
-        if(indexPath.row == 4){
+        if(indexPath.row == 5){
             if([[NSUserDefaults standardUserDefaults] valueForKey:@"username"]){
                 MessageCenter * svc = [[MessageCenter alloc] init];
                 self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
@@ -198,12 +210,15 @@
                 [alert show];
             }
         }
-        if(indexPath.row == 5){
+        if(indexPath.row == 6){
             if([[NSUserDefaults standardUserDefaults] valueForKey:@"username"]){
                 UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"我的警告框" message:@"确定退出登录" delegate:self cancelButtonTitle: @"确定" otherButtonTitles:@"取消", nil];
                 [alert setTag:1];
                 [alert show];
             }
+        }
+        if (indexPath.row == 3) {
+            [myAPI getTheme];
         }
     }
 }
@@ -263,6 +278,17 @@
 //-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
 //    return @"dajiba";
 //}
+
+- (void)didReceiveAPIResponseOf:(API *)api data:(NSDictionary *)data {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ForumViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ForumViewController"];
+    vc.data = data[@"result"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didReceiveAPIErrorOf:(API *)api data:(long)errorNo {
+    NSLog(@"%ld", errorNo);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

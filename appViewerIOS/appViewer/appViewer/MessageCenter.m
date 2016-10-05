@@ -9,6 +9,7 @@
 #import "MessageCenter.h"
 #include "head.h"
 #import "HttpHelper.h"
+#import "CommentView.h"
 
 @interface MessageCenter()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UILabel * titile;
@@ -57,10 +58,15 @@
     return [self.infArr count];
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //UITableViewCell * cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    UITableViewCell * cell=[[UITableViewCell alloc] init];
-    cell.text=self.infArr[indexPath.row][@"content"];
-    //cell.detailTextLabel.text=self.infArr[indexPath.row][@"content"];
+    UITableViewCell * cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    cell.textLabel.text = self.infArr[indexPath.row][@"title"];
+    cell.detailTextLabel.text=self.infArr[indexPath.row][@"description"];
+    UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 250, 70, 200, 12)];
+    timeLabel.text = self.infArr[indexPath.row][@"createTime"];
+    timeLabel.font = [UIFont systemFontOfSize:12];
+    timeLabel.textAlignment = NSTextAlignmentRight;
+    [cell addSubview:timeLabel];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 //-(NSString*)tableView:(UITableView*)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath*)indexpath{
@@ -72,6 +78,14 @@
 //        [alert show];
 //    }
 //}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_infArr[indexPath.row][@"entryID"]) {
+        CommentView * svc = [[CommentView alloc] init];
+        svc.entryID = _infArr[indexPath.row][@"entryID"];
+        [self.navigationController pushViewController:svc animated:YES];
+    }
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }

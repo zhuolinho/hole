@@ -13,6 +13,7 @@
     API *urAPI;
     UIImagePickerController *imagePicker;
     UIActivityIndicatorView *activity;
+    CAShapeLayer *shapeLayer;
 }
 
 @end
@@ -80,6 +81,17 @@
     activity.center = CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2);
     activity.hidesWhenStopped = YES;
     [imagePicker.view addSubview:activity];
+    shapeLayer = [CAShapeLayer layer];
+    shapeLayer.frame = CGRectMake(0, 0, 200, 200);
+    shapeLayer.position = self.view.center;
+    shapeLayer.fillColor = [UIColor blackColor].CGColor;
+    shapeLayer.lineWidth = 1;
+    shapeLayer.strokeColor = [UIColor redColor].CGColor;
+    UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 200, 200)];
+    shapeLayer.path = circlePath.CGPath;
+    [self.view.layer addSublayer:shapeLayer];
+    shapeLayer.strokeStart = 0.5;
+    shapeLayer.strokeEnd = 0.75;
 }
 
 - (void)didReceiveMemoryWarning {

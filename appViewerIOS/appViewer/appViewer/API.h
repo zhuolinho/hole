@@ -41,6 +41,8 @@
 - (void)addCollectionTeacher:(NSString *)uid;
 - (void)deleteCollectionTeacher:(NSString *)uid;
 - (void)uploadImage:(UIImage *)img;
+- (void)getTheme;
+- (void)getForums:(NSString *)categoryID;
 
 + (UIImage *)getPicByKey:(NSString *)key;
 + (void)setPicByKey:(NSString *)key pic:(UIImage *)pic;

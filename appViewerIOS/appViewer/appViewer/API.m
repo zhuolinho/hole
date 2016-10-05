@@ -153,6 +153,14 @@ static NSArray *chiefTeacher;
     [self post:@"deleteCollectionTeacher.action" dic:@{@"token": yo_token, @"teacherUID": uid}];
 }
 
+- (void)getTheme {
+    [self post:@"getAllThemeCategories.action" dic:@{}];
+}
+
+- (void)getForums:(NSString *)categoryID {
+    [self post:@"getForums.action" dic:@{@"categoryID": categoryID}];
+}
+
 - (void)uploadImage:(UIImage *)img {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *yo_token = [ud objectForKey:@"token"];
