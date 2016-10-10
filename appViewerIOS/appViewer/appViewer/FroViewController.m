@@ -7,6 +7,7 @@
 //
 
 #import "FroViewController.h"
+#import "CommentViewController.h"
 
 @implementation FroViewController
 - (IBAction)republicButtonClick:(id)sender {
@@ -55,7 +56,6 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"%@", arr);
     return arr.count;
 }
 
@@ -93,11 +93,14 @@
         commentLabel.text = arr[indexPath.section][@"description"];
     } else if (indexPath.row == 2 && ![arr[indexPath.section][@"picturePaths"]isEqualToString:@""]) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"PicCell" forIndexPath:indexPath];
+        for (UIView *sub in cell.contentView.subviews) {
+            [sub removeFromSuperview];
+        }
         NSArray *picArr = [arr[indexPath.section][@"picturePaths"]componentsSeparatedByString:@","];
         CGFloat cellWidth = self.view.bounds.size.width / 4;
         for (int i = 0; i < picArr.count - 1; i++) {
             UIImageView *myView = [[UIImageView alloc]initWithFrame:CGRectMake(15 + cellWidth * (i % 4), 8 + i / 4 * cellWidth, cellWidth - 8, cellWidth - 8)];
-            [cell addSubview:myView];
+            [cell.contentView addSubview:myView];
             NSString *imgURL = picArr[i];
             NSString *str = [NSString stringWithFormat:@"%@/%@", HOST, imgURL];
             NSURL *url = [NSURL URLWithString:str];
@@ -117,6 +120,13 @@
         cell.detailTextLabel.text = arr[indexPath.section][@"createTime"];
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CommentViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CommentViewController"];
+    vc.dic = arr[indexPath.section];
+    [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

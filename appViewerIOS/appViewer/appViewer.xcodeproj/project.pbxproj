@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0617A3DF1D9CA684002B995F /* FroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617A3DE1D9CA684002B995F /* FroViewController.m */; };
 		0617A3E31D9CA936002B995F /* XFSegementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617A3E21D9CA936002B995F /* XFSegementView.m */; };
+		063D54E61DA88F3B006D96EE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D54E51DA88F3B006D96EE /* CommentViewController.m */; };
 		064D91701D90DCC0002FE14B /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */; };
 		0662714E1D7B083800EF3D8F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662714D1D7B083800EF3D8F /* API.m */; };
 		066FF0761D8449CB00C3821E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066FF0751D8449CB00C3821E /* WebViewController.m */; };
@@ -188,6 +189,8 @@
 		0617A3DE1D9CA684002B995F /* FroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FroViewController.m; sourceTree = "<group>"; };
 		0617A3E11D9CA936002B995F /* XFSegementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSegementView.h; sourceTree = "<group>"; };
 		0617A3E21D9CA936002B995F /* XFSegementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSegementView.m; sourceTree = "<group>"; };
+		063D54E41DA88F3B006D96EE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		063D54E51DA88F3B006D96EE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		064D916D1D90DA98002FE14B /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		0662714C1D7B083800EF3D8F /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -641,6 +644,8 @@
 				0617A3DE1D9CA684002B995F /* FroViewController.m */,
 				0662714C1D7B083800EF3D8F /* API.h */,
 				0662714D1D7B083800EF3D8F /* API.m */,
+				063D54E41DA88F3B006D96EE /* CommentViewController.h */,
+				063D54E51DA88F3B006D96EE /* CommentViewController.m */,
 				36F2C4E11D00A88A00893B95 /* AppDelegate.h */,
 				36F2C4E21D00A88A00893B95 /* AppDelegate.m */,
 				36F2C4EA1D00A88A00893B95 /* Assets.xcassets */,
@@ -1421,6 +1426,7 @@
 				36F2C6791D03C67F00893B95 /* MJRefreshStateHeader.m in Sources */,
 				36F2C5131D00A8E600893B95 /* MainViewController.m in Sources */,
 				36F2C67D1D03C67F00893B95 /* UIScrollView+MJRefresh.m in Sources */,
+				063D54E61DA88F3B006D96EE /* CommentViewController.m in Sources */,
 				0662714E1D7B083800EF3D8F /* API.m in Sources */,
 				0617A3DF1D9CA684002B995F /* FroViewController.m in Sources */,
 				36F2C6CC1D03CA6D00893B95 /* NSString+YW.m in Sources */,

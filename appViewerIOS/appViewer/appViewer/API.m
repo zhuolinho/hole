@@ -161,6 +161,11 @@ static NSArray *chiefTeacher;
     [self post:@"getForums.action" dic:@{@"categoryID": categoryID}];
 }
 
+- (void)getComments:(NSString *)forumID {
+    NSLog(@"%@", forumID);
+    [self post:@"getForumComments.action" dic:@{@"forumID": forumID}];
+}
+
 - (void)uploadImage:(UIImage *)img {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *yo_token = [ud objectForKey:@"token"];

@@ -123,6 +123,7 @@
         titleLabel.textColor =  self.titleColor;
         titleLabel.font = [UIFont systemFontOfSize:self.titleFont];
         titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.lineBreakMode = NSLineBreakByClipping;
         if (_haveRightLine) {
             if (i < self.titleArray.count - 1) {
                 UIView *line = [[UIView alloc]initWithFrame:CGRectMake(ItemWidth - 0.5, ItemHeight/7*2, 1, ItemHeight/7*3)];

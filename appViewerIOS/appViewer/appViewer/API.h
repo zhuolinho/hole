@@ -43,6 +43,7 @@
 - (void)uploadImage:(UIImage *)img;
 - (void)getTheme;
 - (void)getForums:(NSString *)categoryID;
+- (void)getComments:(NSString *)forumID;
 
 + (UIImage *)getPicByKey:(NSString *)key;
 + (void)setPicByKey:(NSString *)key pic:(UIImage *)pic;
