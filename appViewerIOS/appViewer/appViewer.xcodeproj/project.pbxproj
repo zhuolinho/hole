@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0617A3DF1D9CA684002B995F /* FroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617A3DE1D9CA684002B995F /* FroViewController.m */; };
 		0617A3E31D9CA936002B995F /* XFSegementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617A3E21D9CA936002B995F /* XFSegementView.m */; };
+		06205E2C1DBF4BC200012D1C /* RepublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06205E2B1DBF4BC200012D1C /* RepublicViewController.m */; };
 		063D54E61DA88F3B006D96EE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D54E51DA88F3B006D96EE /* CommentViewController.m */; };
 		064D91701D90DCC0002FE14B /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */; };
 		0662714E1D7B083800EF3D8F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662714D1D7B083800EF3D8F /* API.m */; };
@@ -189,6 +190,8 @@
 		0617A3DE1D9CA684002B995F /* FroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FroViewController.m; sourceTree = "<group>"; };
 		0617A3E11D9CA936002B995F /* XFSegementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSegementView.h; sourceTree = "<group>"; };
 		0617A3E21D9CA936002B995F /* XFSegementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSegementView.m; sourceTree = "<group>"; };
+		06205E2A1DBF4BC200012D1C /* RepublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepublicViewController.h; sourceTree = "<group>"; };
+		06205E2B1DBF4BC200012D1C /* RepublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepublicViewController.m; sourceTree = "<group>"; };
 		063D54E41DA88F3B006D96EE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		063D54E51DA88F3B006D96EE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		064D916D1D90DA98002FE14B /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -666,6 +669,8 @@
 				066FF0751D8449CB00C3821E /* WebViewController.m */,
 				068426351D991958009E1FA1 /* ForumViewController.h */,
 				068426361D991958009E1FA1 /* ForumViewController.m */,
+				06205E2A1DBF4BC200012D1C /* RepublicViewController.h */,
+				06205E2B1DBF4BC200012D1C /* RepublicViewController.m */,
 			);
 			path = appViewer;
 			sourceTree = "<group>";
@@ -1423,6 +1428,7 @@
 				36F2C6961D03C67F00893B95 /* UIImage+WebP.m in Sources */,
 				36F2C6701D03C67F00893B95 /* MJRefreshHeader.m in Sources */,
 				36F2C6CE1D03CA6D00893B95 /* UIImage+ImageWithColor.m in Sources */,
+				06205E2C1DBF4BC200012D1C /* RepublicViewController.m in Sources */,
 				36F2C6791D03C67F00893B95 /* MJRefreshStateHeader.m in Sources */,
 				36F2C5131D00A8E600893B95 /* MainViewController.m in Sources */,
 				36F2C67D1D03C67F00893B95 /* UIScrollView+MJRefresh.m in Sources */,

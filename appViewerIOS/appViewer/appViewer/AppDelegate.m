@@ -53,7 +53,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     MainViewController * main = [[MainViewController alloc] init];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:main];
-
+    [nav1.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav"] forBarMetrics:UIBarMetricsDefault];
+    [nav1.navigationBar setTintColor:[UIColor colorWithRed:39 / 255.0 green:217 / 255.0 blue:179 / 255.0 alpha:1]];
+    [nav1.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:155 / 255.0 green:195 / 255.0 blue:192 / 255.0 alpha:1]}];
     [self.window setRootViewController:nav1];
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.

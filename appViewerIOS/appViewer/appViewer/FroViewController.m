@@ -51,6 +51,7 @@
 }
 
 - (void)didReceiveAPIResponseOf:(API *)api data:(NSDictionary *)data {
+    NSLog(@"%f", self.view.bounds.size.width);
     arr = data[@"result"];
     [_myTableView reloadData];
 }

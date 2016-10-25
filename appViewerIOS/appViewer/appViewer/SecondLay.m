@@ -41,7 +41,6 @@
 -(void)InitView
 {
     self.navigationController.navigationBarHidden=NO;
-    self.navigationController.navigationBar.alpha=0.4;
     self.categoryArr=[NSMutableArray new];
     self.subCategoryArr=[NSMutableArray new];
     //self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgSec"]];

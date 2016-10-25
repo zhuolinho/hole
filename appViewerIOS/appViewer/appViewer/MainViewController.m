@@ -39,7 +39,6 @@
 @synthesize btn,Person,searchBar,searchView;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.alpha=0.4;
     self.automaticallyAdjustsScrollViewInsets=NO;
     [self initSearchBar];
     [self initPlayer];
@@ -59,7 +58,6 @@
     // Do any additional setup after loading the view.
 }
 -(void)InitSearchBar{
-    self.navigationController.navigationBar.alpha=0.4;
     UISwipeGestureRecognizer *recognizer;
     recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
     [recognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];

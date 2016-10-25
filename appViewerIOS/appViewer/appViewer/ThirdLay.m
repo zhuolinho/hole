@@ -392,13 +392,6 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-    self.navigationController.navigationBar.alpha=0.4;
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    self.navigationController.navigationBar.alpha=0.4;
-    
-}
 - (void)viewDidAppear:(BOOL)animated{
     //    self.navigationController.navigationBar.hidden=YES;
     //self.navigationController.view.alpha=0.5;
