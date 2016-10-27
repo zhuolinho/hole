@@ -44,6 +44,8 @@
 - (void)getTheme;
 - (void)getForums:(NSString *)categoryID;
 - (void)getComments:(NSString *)forumID;
+- (void)addForum:(NSString *)title description:(NSString *)description categoryID:(NSString *)categoryID picturePaths:(NSString *)picturePaths;
+- (void)addForumComment:(NSString *)forumID talkerID:(NSString *)talkerID content:(NSString *)content picturePaths:(NSString *)picturePaths;
 
 + (UIImage *)getPicByKey:(NSString *)key;
 + (void)setPicByKey:(NSString *)key pic:(UIImage *)pic;

@@ -8,6 +8,7 @@
 
 #import "CommentViewController.h"
 #import "API.h"
+#import "ForumCommentViewController.h"
 
 @interface CommentViewController () <APIProtocol> {
     API *myAPI;
@@ -22,8 +23,8 @@
     [super viewDidLoad];
     myAPI = [[API alloc]init];
     myAPI.delegate = self;
-    [myAPI getComments:[NSString stringWithFormat:@"%@", _dic[@"id"]]];
     self.title = @"论坛";
+    NSLog(@"%@", _dic);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -34,6 +35,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [myAPI getComments:[NSString stringWithFormat:@"%@", _dic[@"id"]]];
 }
 
 #pragma mark - Table view data source
@@ -48,7 +54,7 @@
     if (section) {
         return comments.count;
     } else {
-        if ([_dic[@"picturePaths"]isEqualToString:@""]) {
+        if ([_dic[@"picturePaths"]isEqualToString:@""] || [_dic[@"picturePaths"]isEqualToString:@"*"]) {
             return 3;
         } else {
             return 4;
@@ -78,8 +84,14 @@
         CGSize size = [str sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(self.view.frame.size.width - 30, 1000) lineBreakMode:NSLineBreakByWordWrapping];
         CGFloat cellWidth = self.view.bounds.size.width / 4;
         int lines = 0;
-        if (![comments[indexPath.row][@"picturePaths"]isEqualToString:@""]) {
-            lines = ([comments[indexPath.row][@"picturePaths"]componentsSeparatedByString:@","].count - 2) / 4 + 1;
+        if (![comments[indexPath.row][@"picturePaths"]isEqualToString:@""] && ![comments[indexPath.row][@"picturePaths"]isEqualToString:@"*"]) {
+            unsigned long lines;
+            NSArray *picArray = [comments[indexPath.row][@"picturePaths"]componentsSeparatedByString:@","];
+            if ([picArray[picArray.count - 1]isEqualToString:@""]) {
+                lines = (picArray.count - 2) / 4 + 1;
+            } else {
+                lines = (picArray.count - 1) / 4 + 1;
+            }
         }
         return size.height + lines * cellWidth + 16;
     } else {
@@ -88,9 +100,15 @@
         } else if (indexPath.row == 1) {
             CGSize size = [_dic[@"description"]sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(self.view.frame.size.width - 30, 1000) lineBreakMode:NSLineBreakByWordWrapping];
             return size.height + 16;
-        } else if (indexPath.row == 2 && ![_dic[@"picturePaths"]isEqualToString:@""]) {
+        } else if (indexPath.row == 2 && ![_dic[@"picturePaths"]isEqualToString:@""] && ![_dic[@"picturePaths"]isEqualToString:@"*"]) {
             CGFloat cellWidth = self.view.bounds.size.width / 4;
-            unsigned long lines = ([_dic[@"picturePaths"]componentsSeparatedByString:@","].count - 2) / 4 + 1;
+            unsigned long lines;
+            NSArray *picArray = [_dic[@"picturePaths"]componentsSeparatedByString:@","];
+            if ([picArray[picArray.count - 1]isEqualToString:@""]) {
+                lines = (picArray.count - 2) / 4 + 1;
+            } else {
+                lines = (picArray.count - 1) / 4 + 1;
+            }
             return lines * cellWidth + 8;
         } else {
             return 25;
@@ -103,7 +121,6 @@
 }
 
 - (void)didReceiveAPIResponseOf:(API *)api data:(NSDictionary *)data {
-    NSLog(@"%@", data);
     comments = data[@"result"];
     [self.tableView reloadData];
 }
@@ -131,7 +148,7 @@
         CGSize size = [temp sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(self.view.frame.size.width - 30, 1000) lineBreakMode:NSLineBreakByWordWrapping];
         NSArray *picArr = [comments[indexPath.row][@"picturePaths"]componentsSeparatedByString:@","];
         CGFloat cellWidth = self.view.bounds.size.width / 4;
-        for (int i = 0; i < picArr.count - 1; i++) {
+        for (int i = 0; i < picArr.count; i++) {
             UIImageView *myView = [[UIImageView alloc]initWithFrame:CGRectMake(15 + cellWidth * (i % 4), 16 + i / 4 * cellWidth + size.height, cellWidth - 8, cellWidth - 8)];
             [cell.contentView addSubview:myView];
             NSString *imgURL = picArr[i];
@@ -156,14 +173,14 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
             UILabel *commentLabel = [cell viewWithTag:111];
             commentLabel.text = _dic[@"description"];
-        } else if (indexPath.row == 2 && ![_dic[@"picturePaths"]isEqualToString:@""]) {
+        } else if (indexPath.row == 2 && ![_dic[@"picturePaths"]isEqualToString:@""] && ![_dic[@"picturePaths"]isEqualToString:@"*"]) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"PicCell" forIndexPath:indexPath];
             for (UIView *sub in cell.contentView.subviews) {
                 [sub removeFromSuperview];
             }
             NSArray *picArr = [_dic[@"picturePaths"]componentsSeparatedByString:@","];
             CGFloat cellWidth = self.view.bounds.size.width / 4;
-            for (int i = 0; i < picArr.count - 1; i++) {
+            for (int i = 0; i < picArr.count; i++) {
                 UIImageView *myView = [[UIImageView alloc]initWithFrame:CGRectMake(15 + cellWidth * (i % 4), 8 + i / 4 * cellWidth, cellWidth - 8, cellWidth - 8)];
                 [cell.contentView addSubview:myView];
                 NSString *imgURL = picArr[i];
@@ -188,6 +205,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ForumCommentViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ForumCommentViewController"];
+    if (indexPath.section) {
+        vc.uid = [NSString stringWithFormat:@"%@", comments[indexPath.row][@"uid"]];
+        vc.data = _dic;
+    } else {
+        vc.uid = [NSString stringWithFormat:@"%@", _dic[@"uid"]];
+        vc.data = _dic;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

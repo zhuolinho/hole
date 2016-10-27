@@ -162,8 +162,13 @@ static NSArray *chiefTeacher;
 }
 
 - (void)getComments:(NSString *)forumID {
-    NSLog(@"%@", forumID);
     [self post:@"getForumComments.action" dic:@{@"forumID": forumID}];
+}
+
+- (void)addForum:(NSString *)title description:(NSString *)description categoryID:(NSString *)categoryID picturePaths:(NSString *)picturePaths {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *yo_token = [ud objectForKey:@"token"];
+    [self post:@"addForum.action" dic:@{@"token": yo_token, @"title": title, @"description": description, @"categoryID": categoryID, @"picturePaths": picturePaths}];
 }
 
 - (void)uploadImage:(UIImage *)img {
@@ -177,7 +182,14 @@ static NSArray *chiefTeacher;
     [self post:@"uploadImage.action" dic:@{@"base64File": stringImg, @"token": yo_token}];
 }
 
+- (void)addForumComment:(NSString *)forumID talkerID:(NSString *)talkerID content:(NSString *)content picturePaths:(NSString *)picturePaths {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *yo_token = [ud objectForKey:@"token"];
+    [self post:@"addForumComment.action" dic:@{@"token": yo_token, @"forumID": forumID, @"talkerID": talkerID, @"content": content, @"picturePaths": picturePaths}];
+}
+
 - (void)post:(NSString *)action dic:(NSDictionary *)dic {
+    NSLog(@"%@", dic);
     NSString *str = [NSString stringWithFormat:@"%@/appviewer/api/%@", HOST, action];
     NSURL *url = [NSURL URLWithString:str];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];

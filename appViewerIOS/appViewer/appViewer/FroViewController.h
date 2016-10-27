@@ -14,6 +14,7 @@
     XFSegementView *segementView;
     API *myAPI;
     NSArray *arr;
+    int clik;
 }
 
 @property NSDictionary *data;

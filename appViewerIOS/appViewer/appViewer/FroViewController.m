@@ -8,10 +8,14 @@
 
 #import "FroViewController.h"
 #import "CommentViewController.h"
+#import "RepublicViewController.h"
 
 @implementation FroViewController
 - (IBAction)republicButtonClick:(id)sender {
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"RepublicViewController"];
+    RepublicViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"RepublicViewController"];
+    if (((NSArray *)_data[@"categories"]).count) {
+        vc.categoryID = [NSString stringWithFormat:@"%@", _data[@"categories"][clik][@"id"]];
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -43,7 +47,15 @@
 }
 
 - (void)touchLabelWithIndex:(NSInteger)index{
+    clik = index;
     [myAPI getForums:[NSString stringWithFormat:@"%@", _data[@"categories"][index][@"id"]]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (((NSArray *)_data[@"categories"]).count) {
+        [myAPI getForums:[NSString stringWithFormat:@"%@", _data[@"categories"][clik][@"id"]]];
+    }
 }
 
 - (void)didReceiveAPIErrorOf:(API *)api data:(long)errorNo {
@@ -61,7 +73,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([arr[section][@"picturePaths"]isEqualToString:@""]) {
+    if ([arr[section][@"picturePaths"]isEqualToString:@""] || [arr[section][@"picturePaths"]isEqualToString:@"*"]) {
         return 3;
     } else {
         return 4;
@@ -74,9 +86,15 @@
     } else if (indexPath.row == 1) {
         CGSize size = [arr[indexPath.section][@"description"]sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(self.view.frame.size.width - 30, 1000) lineBreakMode:NSLineBreakByWordWrapping];
         return size.height + 16;
-    } else if (indexPath.row == 2 && ![arr[indexPath.section][@"picturePaths"]isEqualToString:@""]) {
+    } else if (indexPath.row == 2 && ![arr[indexPath.section][@"picturePaths"]isEqualToString:@""] && ![arr[indexPath.section][@"picturePaths"]isEqualToString:@"*"]) {
         CGFloat cellWidth = self.view.bounds.size.width / 4;
-        unsigned long lines = ([arr[indexPath.section][@"picturePaths"]componentsSeparatedByString:@","].count - 2) / 4 + 1;
+        unsigned long lines;
+        NSArray *picArray = [arr[indexPath.section][@"picturePaths"]componentsSeparatedByString:@","];
+        if ([picArray[picArray.count - 1]isEqualToString:@""]) {
+            lines = (picArray.count - 2) / 4 + 1;
+        } else {
+            lines = (picArray.count - 1) / 4 + 1;
+        }
         return lines * cellWidth + 8;
     } else {
         return 25;
@@ -92,14 +110,14 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
         UILabel *commentLabel = [cell viewWithTag:111];
         commentLabel.text = arr[indexPath.section][@"description"];
-    } else if (indexPath.row == 2 && ![arr[indexPath.section][@"picturePaths"]isEqualToString:@""]) {
+    } else if (indexPath.row == 2 && ![arr[indexPath.section][@"picturePaths"]isEqualToString:@""] && ![arr[indexPath.section][@"picturePaths"]isEqualToString:@"*"]) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"PicCell" forIndexPath:indexPath];
         for (UIView *sub in cell.contentView.subviews) {
             [sub removeFromSuperview];
         }
         NSArray *picArr = [arr[indexPath.section][@"picturePaths"]componentsSeparatedByString:@","];
         CGFloat cellWidth = self.view.bounds.size.width / 4;
-        for (int i = 0; i < picArr.count - 1; i++) {
+        for (int i = 0; i < picArr.count; i++) {
             UIImageView *myView = [[UIImageView alloc]initWithFrame:CGRectMake(15 + cellWidth * (i % 4), 8 + i / 4 * cellWidth, cellWidth - 8, cellWidth - 8)];
             [cell.contentView addSubview:myView];
             NSString *imgURL = picArr[i];
@@ -114,7 +132,6 @@
                     }
                 }
             }];
-
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TimeCell" forIndexPath:indexPath];

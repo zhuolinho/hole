@@ -10,4 +10,6 @@
 
 @interface RepublicViewController : UIViewController
 
+@property NSString *categoryID;
+
 @end
