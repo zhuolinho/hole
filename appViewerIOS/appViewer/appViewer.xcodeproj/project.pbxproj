@@ -28,6 +28,7 @@
 		068F049D1D7E8CBA00B41EBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F049C1D7E8CBA00B41EBA /* UIKit.framework */; };
 		068F049F1D7E8CC800B41EBA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F049E1D7E8CC800B41EBA /* Security.framework */; };
 		068F04A11D7E8CDA00B41EBA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04A01D7E8CDA00B41EBA /* libz.tbd */; };
+		069E8E8D1DC089AB00CA89EC /* ForumCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069E8E8C1DC089AB00CA89EC /* ForumCommentViewController.m */; };
 		361B06001D2EAE13000ABA8F /* personSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 361B05FF1D2EAE13000ABA8F /* personSetting.m */; };
 		361B06031D2EB77B000ABA8F /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 361B06021D2EB77B000ABA8F /* SearchResult.m */; };
 		3635E03D1D221A1300225404 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3635E03C1D221A1300225404 /* AVFoundation.framework */; };
@@ -220,6 +221,8 @@
 		068F049C1D7E8CBA00B41EBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		068F049E1D7E8CC800B41EBA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		068F04A01D7E8CDA00B41EBA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		069E8E8B1DC089AB00CA89EC /* ForumCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumCommentViewController.h; sourceTree = "<group>"; };
+		069E8E8C1DC089AB00CA89EC /* ForumCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumCommentViewController.m; sourceTree = "<group>"; };
 		361B05FE1D2EAE13000ABA8F /* personSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = personSetting.h; sourceTree = "<group>"; };
 		361B05FF1D2EAE13000ABA8F /* personSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = personSetting.m; sourceTree = "<group>"; };
 		361B06011D2EB77B000ABA8F /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 				068426361D991958009E1FA1 /* ForumViewController.m */,
 				06205E2A1DBF4BC200012D1C /* RepublicViewController.h */,
 				06205E2B1DBF4BC200012D1C /* RepublicViewController.m */,
+				069E8E8B1DC089AB00CA89EC /* ForumCommentViewController.h */,
+				069E8E8C1DC089AB00CA89EC /* ForumCommentViewController.m */,
 			);
 			path = appViewer;
 			sourceTree = "<group>";
@@ -1350,6 +1355,7 @@
 				36F2C6D01D03CA6D00893B95 /* UIView+Extension.m in Sources */,
 				36FA019A1D18787700E14392 /* AddComment.m in Sources */,
 				36F2C6E21D03D01400893B95 /* SGActionView.m in Sources */,
+				069E8E8D1DC089AB00CA89EC /* ForumCommentViewController.m in Sources */,
 				36F2C5401D0337B100893B95 /* UploadVC.m in Sources */,
 				36F2C6581D03C67F00893B95 /* AFNetworkReachabilityManager.m in Sources */,
 				36F2C6A01D03C67F00893B95 /* UIButton+AFNetworking.m in Sources */,

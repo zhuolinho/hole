@@ -25,6 +25,10 @@
     myAPI.delegate = self;
     self.title = @"论坛";
     NSLog(@"%@", _dic);
+    UIImageView *bg = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    bg.image = [UIImage imageNamed:@"bg-1"];
+    [self.tableView setBackgroundView:bg];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -143,7 +147,7 @@
         NSString *nickname = comments[indexPath.row][@"nickname"];
         NSString *temp = [NSString stringWithFormat:@"%@：%@%@", nickname, talker, comments[indexPath.row][@"content"]];
         NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:temp];
-        [str addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0, nickname.length)];
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:39 / 255.0 green:217 / 255.0 blue:179 / 255.0 alpha:1] range:NSMakeRange(0, nickname.length)];
         commentLabel.attributedText = str;
         CGSize size = [temp sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(self.view.frame.size.width - 30, 1000) lineBreakMode:NSLineBreakByWordWrapping];
         NSArray *picArr = [comments[indexPath.row][@"picturePaths"]componentsSeparatedByString:@","];
@@ -202,6 +206,7 @@
         }
 
     }
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     return cell;
 }
 

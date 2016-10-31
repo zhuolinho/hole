@@ -22,30 +22,35 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 140, SCREEN_WIDTH-30, 260)];
-    self.imageView.backgroundColor=[UIColor blackColor];
+    self.imageView.backgroundColor=[UIColor grayColor];
     self.imageView.userInteractionEnabled=YES;
     self.imageView.layer.cornerRadius=30;
     self.imageView.alpha = 0.7;
-    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBG"]];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"bg-1"]];
+    [self.view addSubview:bgImgView];
     //self.view.backgroundColor=[UIColor whiteColor];
     self.usernameTip=[[UILabel alloc] initWithFrame:CGRectMake(5, 30, 120, 40)];
     self.usernameTip.text=@"邮箱注册";
     self.usernameTip.textAlignment=NSTextAlignmentCenter;
-    self.usernameTip.backgroundColor=[UIColor grayColor];
+    self.usernameTip.backgroundColor=RGB(39, 217, 179);
     self.usernameTip.layer.cornerRadius=10;
     self.usernameTip.alpha=0.9;
+    self.usernameTip.textColor = [UIColor whiteColor];
     
     self.username = [[UITextField alloc] initWithFrame:CGRectMake(125, 30, SCREEN_WIDTH - 170, 40)];
     self.username.placeholder=@"请使用您的邮箱进行注册";
     self.username.textAlignment=NSTextAlignmentCenter;
     self.username.backgroundColor=[UIColor whiteColor];
+    self.username.textColor = RGB(39, 217, 179);
     //self.username.layer.cornerRadius=10;
     self.username.alpha=0.9;
     
     self.passwordTip=[[UILabel alloc] initWithFrame:CGRectMake(5, 100, 120, 40)];
     self.passwordTip.text=@"密码";
     self.passwordTip.textAlignment=NSTextAlignmentCenter;
-    self.passwordTip.backgroundColor=[UIColor grayColor];
+    self.passwordTip.backgroundColor=RGB(39, 217, 179);
+    self.passwordTip.textColor=[UIColor whiteColor];
     self.passwordTip.layer.cornerRadius=10;
     self.passwordTip.alpha=0.9;
     
@@ -55,21 +60,23 @@
     self.password.backgroundColor=[UIColor whiteColor];
     //self.password.layer.cornerRadius=10;
     self.password.alpha=0.9;
+    self.password.textColor = RGB(39, 217, 179);
     self.password.secureTextEntry = YES;
     
     self.confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(45,190,(SCREEN_WIDTH-120),50)];
     self.confirmButton.titleLabel.text = @"confirm";
-    [self.confirmButton setBackgroundColor:[UIColor grayColor]];
+
     
     UILabel * qqq = [[UILabel alloc] initWithFrame:self.confirmButton.bounds];
     qqq.text=@"确定";
     qqq.textAlignment=NSTextAlignmentCenter;
+    qqq.textColor = [UIColor whiteColor];
     [self.confirmButton addSubview:qqq];
     
     //    self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH+60)/2,200,(SCREEN_WIDTH-120)/2,30];
     //    self.cancelButton.titleLabel.text = @"cancel";
     [self.confirmButton addTarget:self action:@selector(confirmButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.confirmButton setBackgroundColor:[UIColor grayColor]];
+    [self.confirmButton setBackgroundColor:RGB(39, 217, 179)];
     //    btn = [[UIButton alloc] initWithFrame:CGRectMake(textView.MaxX, kGap, SCREEN_WIDTH-textView.MaxX, 20)];
     //    [btn addTarget:self action:@selector(bthClick) forControlEvents:UIControlEventTouchUpInside];
     //    [btn setTitle:@"发送" forState:UIControlStateNormal];

@@ -17,13 +17,16 @@
 @implementation personSetting
 -(void)viewDidLoad{
     [super viewDidLoad];
-    UIImageView * bgView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 110, SCREEN_WIDTH-40, 60)];
-    bgView.backgroundColor=RGB(245,246,247);
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"bg-1"]];
+    [self.view addSubview:bgImgView];
+    UIImageView * bgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 110, SCREEN_WIDTH-20, 60)];
+    bgView.backgroundColor=RGBA(245,246,247,100);
     bgView.layer.cornerRadius=12;
     [self.view addSubview:bgView];
-    self.view.backgroundColor=[UIColor whiteColor];
-    self.textLabel=[[UILabel alloc] initWithFrame:CGRectMake(30, 120, 150, 40)];
+    self.textLabel=[[UILabel alloc] initWithFrame:CGRectMake(20, 120, 150, 40)];
     self.textLabel.text=@"音效开关";
+    self.textLabel.textColor = RGB(39, 217, 179);
     [self.view addSubview:self.textLabel];
     
     self.onOrOff=[[UISwitch alloc] initWithFrame:CGRectMake(250, 125, 60, 40)];

@@ -30,7 +30,8 @@
     }
     segementView.titleArray = arrTemp;
     segementView.scrollLineColor = [UIColor clearColor];
-    segementView.titleSelectedColor = [UIColor orangeColor];
+    segementView.titleColor = [UIColor colorWithRed:155 / 255.0 green:195 / 255.0 blue:192 / 255.0 alpha:1];
+    segementView.titleSelectedColor = [UIColor colorWithRed:39 / 255.0 green:217 / 255.0 blue:179 / 255.0 alpha:1];
     segementView.touchDelegate = self;
     [self.view addSubview:segementView];
     segementView.contentSize = CGSizeMake(64 * segementView.titleArray.count, 50);
@@ -72,6 +73,14 @@
     return arr.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([arr[section][@"picturePaths"]isEqualToString:@""] || [arr[section][@"picturePaths"]isEqualToString:@"*"]) {
         return 3;
@@ -105,7 +114,11 @@
     UITableViewCell *cell;
     if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@：%@", arr[indexPath.section][@"nickname"], arr[indexPath.section][@"title"]];
+        NSString *temp = [NSString stringWithFormat:@"%@：%@", arr[indexPath.section][@"nickname"], arr[indexPath.section][@"title"]];
+        NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:temp];
+        NSString *nickname = arr[indexPath.section][@"nickname"];
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:39 / 255.0 green:217 / 255.0 blue:179 / 255.0 alpha:1] range:NSMakeRange(0, nickname.length)];
+        cell.textLabel.attributedText = str;
     } else if (indexPath.row == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
         UILabel *commentLabel = [cell viewWithTag:111];
@@ -137,6 +150,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"TimeCell" forIndexPath:indexPath];
         cell.detailTextLabel.text = arr[indexPath.section][@"createTime"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

@@ -22,7 +22,9 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     //self.view.backgroundColor=[UIColor grayColor];
-    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"bg-1"]];
+    [self.view addSubview:bgImgView];
     
     //self.view.backgroundColor=[UIColor whiteColor];
     [self InitView];
@@ -55,9 +57,10 @@
     self.gender.backgroundColor=[UIColor whiteColor];
     self.email.backgroundColor=[UIColor whiteColor];
     //self.confirmButton.backgroundColor=[UIColor whiteColor];
-    [self.confirmButton setImage:[UIImage imageNamed:@"confirm"] forState:UIControlStateNormal];
+    [self.confirmButton setBackgroundColor:[UIColor colorWithRed:39 / 255.0 green:217 / 255.0 blue:179 / 255.0 alpha:1]];
     
     UILabel * qqq = [[UILabel alloc] initWithFrame:self.confirmButton.bounds];
+    qqq.textColor = [UIColor whiteColor];
     qqq.text=@"确定";
     qqq.textAlignment=NSTextAlignmentCenter;
     [self.confirmButton addSubview:qqq];

@@ -28,9 +28,12 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self setBar];
-    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBG"]];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"bg-2"]];
+    [self.view addSubview:bgImgView];
     infDic = [NSMutableDictionary new];
     infArr=[NSMutableArray new];
+    self.title = @"软件信息";
     NSMutableDictionary * requestDic=[NSMutableDictionary new];
     requestDic[@"offset"]=[NSNumber numberWithInt:0];
     requestDic[@"limit"]=[NSNumber numberWithInt:10];
@@ -116,7 +119,7 @@
     self.scrollView.pagingEnabled=YES;
     //self.scrollView.bounces=NO;
     self.scrollView.scrollEnabled=YES;
-    self.scrollView.backgroundColor=[UIColor whiteColor];
+    self.scrollView.backgroundColor=[UIColor clearColor];
     self.scrollView.alwaysBounceHorizontal=YES;
     self.scrollView.delegate=self;
     self.isInit=[NSMutableDictionary new];
@@ -131,6 +134,8 @@
 -(void)InitDetailVersion:(int)num withDic: (NSDictionary *) dic{
     UIImageView * desImgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * num + 10, 10, SCREEN_WIDTH-20, 70)];
     UITextView * descriptView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-20, 50)];
+    descriptView.backgroundColor = [UIColor clearColor];
+    descriptView.textColor = RGB(155, 195, 192);
     NSString * description =infArr[num][@"description"];
     if([description isEqualToString:@""]){
         descriptView.text=@"暂无描述 ";
@@ -144,10 +149,10 @@
     //return [imgArr count];
     if([imgArr count] > 0){
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumInteritemSpacing = 0;
-        layout.minimumLineSpacing = 1;
-        UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * num + 40, 90, SCREEN_WIDTH - 80 , SCREEN_HEIGHT - 300)  collectionViewLayout:layout];
-        collectionView.backgroundColor=RGB(250, 250, 250);
+        layout.minimumInteritemSpacing = 10;
+        layout.minimumLineSpacing = 10;
+        UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * num + 20, 90, SCREEN_WIDTH - 40, SCREEN_HEIGHT - 300)  collectionViewLayout:layout];
+        collectionView.backgroundColor=[UIColor clearColor];
         [collectionView setTag:num];
         self.automaticallyAdjustsScrollViewInsets = NO;
         collectionView.alpha=1;
@@ -181,7 +186,7 @@
     [cell.contentView addSubview:detailImageView];
 //    [cell.contentView addSubview:detailImageView];
     
-    cell.backgroundColor = [UIColor colorWithRed:((100 * 2) / 255.0) green:((200 * 2)/255.0) blue:((300 * 2)/255.0) alpha:1.0f];
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -214,12 +219,11 @@
 //self.view.backgroundColor=RGBA(223,223,224,220);//[UIColor grayColor];
 -(void)InitTopView:(int)num{
     self.topImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-    self.topImgView.backgroundColor = RGB(245, 245, 245);
-    self.topImgView.alpha=0.0;
+    self.topImgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"scrollinfo"]];
     [self.view addSubview:self.topImgView];
     
     self.showHintLabel=[[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 70, 140, 140, 40)];
-    self.showHintLabel.textColor=[UIColor whiteColor];
+    self.showHintLabel.textColor=RGB(155, 195, 192);
     self.showHintLabel.textAlignment=NSTextAlignmentCenter;
     NSString * firstVersionString = infArr[0][@"version"];
     if([firstVersionString isEqualToString:@"hunhe"]){
@@ -245,10 +249,10 @@
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 100 + i * 200/(num-1) - 7, 100, 14, 14) ];
         imgView.layer.cornerRadius=7;
         if(i==0){
-            imgView.backgroundColor=[UIColor whiteColor];
+            imgView.backgroundColor=RGB(39, 217, 179);
         }
         else{
-            imgView.backgroundColor=MoreGreyLineColor;//[UIColor grayColor];
+            imgView.backgroundColor=RGB(155, 195, 192);//[UIColor grayColor];
         }
         //[self.view addSubview:imgView];
         [self.versionImgArr addObject:imgView];
@@ -266,7 +270,6 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     int num = (int)(scrollView.contentOffset.x/SCREEN_WIDTH);
-    NSLog(@"%d",num);
     
     if(num != viewPage){
         NSString * ooq = [self.isInit objectForKey:[NSNumber numberWithInt:num]] ;
@@ -282,8 +285,8 @@
         }else{
             self.showHintLabel.text = @"";
         }
-        [self.versionImgArr[viewPage] setBackgroundColor:MoreGreyLineColor];//[UIColor grayColor]
-        [self.versionImgArr[num] setBackgroundColor:[UIColor whiteColor]];
+        [self.versionImgArr[viewPage] setBackgroundColor:RGB(155, 195, 192)];//[UIColor grayColor]
+        [self.versionImgArr[num] setBackgroundColor:RGB(39, 217, 179)];
         viewPage = num;
     }
 }

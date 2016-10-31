@@ -46,15 +46,16 @@
     darkOflight = false;
     angle=0;
     //self.view.frame=CGRectMake(0, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
-    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"mainbg-1"]];
+    [self.view addSubview:bgImgView];
     //self.view.backgroundColor=[UIColor whiteColor];
     [self InitGotoPersonImageView];
     angle=0;radius=50;centerX=SCREEN_WIDTH/20;centerY=SCREEN_WIDTH/2;centerY=SCREEN_WIDTH/2;
     [self InitCircle];
     //[NSTimer scheuledTimerWithTimeInterval:1.0/60.0  target: self  selector:@selector(timerAdvanced:) userInfo:nil  repeats: YES];
-    [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(timerAdvanced:) userInfo:nil repeats:YES];
-
-    
+//    [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(timerAdvanced:) userInfo:nil repeats:YES];
+    NSLog(@"%f", self.view.bounds.size.height);
     // Do any additional setup after loading the view.
 }
 -(void)InitSearchBar{
@@ -129,28 +130,13 @@
     [self.Base3 setCenter:CGPointMake(CenterX3+(angle-0.25)/0.08,CenterY3)];
 }
 -(void)InitCircle{
-    self.Base1=[[UIImageView alloc] initWithFrame:CGRectMake(301*SCREEN_WIDTH/591, 100  *SCREEN_HEIGHT/1063, 290*SCREEN_WIDTH/591, 174*SCREEN_HEIGHT/1063)];
-    self.Base2=[[UIImageView alloc] initWithFrame:CGRectMake(12 *SCREEN_WIDTH/591, 166*SCREEN_HEIGHT/1063, 298*SCREEN_WIDTH/591, 253*SCREEN_HEIGHT/1063)];
-    self.Base3=[[UIImageView alloc] initWithFrame:CGRectMake(175*SCREEN_WIDTH/591, 409*SCREEN_HEIGHT/1063, 416*SCREEN_WIDTH/591, 406*SCREEN_HEIGHT/1063)];
-    UIImage * _img1 = [self reSizeImage:[UIImage imageNamed:@"star1"] toSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT)];
-    UIImage * _img2 = [self reSizeImage:[UIImage imageNamed:@"star2"] toSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT)];
-    UIImage * _img3 = [self reSizeImage:[UIImage imageNamed:@"star3"] toSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT)];
-    UIImage * img1 = [self clipImageInRect:_img1 withRect:CGRectMake(301*SCREEN_WIDTH/591, 0  *SCREEN_HEIGHT/1063, 290*SCREEN_WIDTH/591, 174*SCREEN_HEIGHT/1063)];
-    UIImage * img2 = [self clipImageInRect:_img2 withRect:CGRectMake(12 *SCREEN_WIDTH/591, 166*SCREEN_HEIGHT/1063, 298*SCREEN_WIDTH/591, 253*SCREEN_HEIGHT/1063)];
-    UIImage * img3 = [self clipImageInRect:_img3 withRect:CGRectMake(175*SCREEN_WIDTH/591, 409*SCREEN_HEIGHT/1063, 416*SCREEN_WIDTH/591, 406*SCREEN_HEIGHT/1063)];
-    
-    UILabel * label1 = [[UILabel alloc] initWithFrame:CGRectMake(301*SCREEN_WIDTH/591+70,100  *SCREEN_HEIGHT/1063+30, 50, 30)];
-    UILabel * label2 = [[UILabel alloc] initWithFrame:CGRectMake(12 *SCREEN_WIDTH/591+90, 166*SCREEN_HEIGHT/1063+50, 50, 30)];
-    UILabel * label3 = [[UILabel alloc] initWithFrame:CGRectMake(175*SCREEN_WIDTH/591+120, 409*SCREEN_HEIGHT/1063+90, 50, 30)];
-    
-    label1.text=@"付费";
-    //label1.font= [UIFont fontWithName:@"STXinwei" size:22];
-    label2.text=@"游戏";
-    label3.text=@"生活";
-    
-    label1.textColor=[UIColor whiteColor];
-    label2.textColor=[UIColor whiteColor];
-    label3.textColor=[UIColor whiteColor];
+    self.Base1=[[UIImageView alloc] initWithFrame:CGRectMake(301*SCREEN_WIDTH/640, 100*SCREEN_HEIGHT/1136, 282*SCREEN_WIDTH/640, 202*SCREEN_HEIGHT/1136)];
+    self.Base3=[[UIImageView alloc] initWithFrame:CGRectMake(12 *SCREEN_WIDTH/640, 300*SCREEN_HEIGHT/1136, 372*SCREEN_WIDTH/640, 248*SCREEN_HEIGHT/1136)];
+    self.Base2=[[UIImageView alloc] initWithFrame:CGRectMake(351*SCREEN_WIDTH/640, 600*SCREEN_HEIGHT/1136, 249*SCREEN_WIDTH/640, 225*SCREEN_HEIGHT/1136)];
+
+    UIImage * img1 = [UIImage imageNamed:@"fufei"];
+    UIImage * img2 = [UIImage imageNamed:@"shenghuo"];
+    UIImage * img3 = [UIImage imageNamed:@"youxi"];
     
     [self.Base1 setImage:img1];
     [self.Base2 setImage:img2];
@@ -161,8 +147,8 @@
     self.Base3.userInteractionEnabled=YES;
     
     self.Base1.tag=1;
-    self.Base2.tag=2;
-    self.Base3.tag=3;
+    self.Base2.tag=3;
+    self.Base3.tag=2;
     
     UITapGestureRecognizer * singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bthClick:)];
     UITapGestureRecognizer * singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bthClick:)];
@@ -175,29 +161,10 @@
     [self.view addSubview:self.Base1];
     [self.view addSubview:self.Base2];
     [self.view addSubview:self.Base3];
-    
-    [self.view addSubview:label1];
-    [self.view addSubview:label2];
-    [self.view addSubview:label3];
 }
 
 - (void) InitGotoPersonImageView{
     Person = [[UIImageView alloc] initWithFrame:CGRectMake(140*SCREEN_WIDTH/591, 817*SCREEN_HEIGHT/1063, 314*SCREEN_WIDTH/591, 217*SCREEN_HEIGHT/1063)];
-    
-    UIImage * home = [UIImage imageNamed:@"home"];
-    home = [self reSizeImage:home toSize:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT)];
-    int width = home.size.width;
-    int height = home.size.height;
-    UIImage * newhome =[[UIImage alloc] init];
-    newhome= [self clipImageInRect:home withRect:CGRectMake(140*SCREEN_WIDTH/591, 817*SCREEN_HEIGHT/1063, 314*SCREEN_WIDTH/591, 217*SCREEN_HEIGHT/1063)];//(140*width/591, 817*height/1063, 314*width/591, 217*height/1063)
-    [Person setImage:newhome];
-    Person.contentMode=UIViewContentModeTopLeft;
-    Person.clipsToBounds=YES;
-    //Person.frame = CGRectMake(140*SCREEN_WIDTH/591, 817*SCREEN_HEIGHT/1063, 314*SCREEN_WIDTH/591, 217*SCREEN_HEIGHT/1063);
-    
-    NSString * imgStr =@"http://139.196.56.202:8080/picture/payment/game/relax/Cut the Rope/1.4.0/IMG_1364.PNG";
-    imgStr=[imgStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    //[Person setImageWithURL:[NSURL URLWithString:imgStr]];
     Person.userInteractionEnabled = YES;
     [Person setTag:0];
     UITapGestureRecognizer * singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotoPersonCenter:)];

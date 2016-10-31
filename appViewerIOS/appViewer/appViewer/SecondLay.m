@@ -34,6 +34,7 @@
 -(void) viewDidLoad{
     [super viewDidLoad];
     [self InitView];
+    self.title = @"软件提前知";
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [self RemoveSecondLayer];
@@ -45,7 +46,7 @@
     self.subCategoryArr=[NSMutableArray new];
     //self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgSec"]];
     bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [bgImgView setImage:[UIImage imageNamed:@"bgSec"]];
+    [bgImgView setImage:[UIImage imageNamed:@"selectbg"]];
     [self.view addSubview:bgImgView];
     self.additionView=[[UIView alloc] initWithFrame:self.view.bounds];
     NSString * url = [NSString stringWithFormat:@"%@%@",AppViewUrl,@"getCategories.action"];
@@ -73,19 +74,6 @@
         int gayW=50;
         int h1 = 150;
         int h2 = SCREEN_WIDTH + 50;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [cor1 setTag:2];[cor2 setTag:2];[cor3 setTag:2];[cor4 setTag:2];
-        [self.view addSubview:cor1];
-        [self.view addSubview:cor2];
-        [self.view addSubview:cor3];
-        [self.view addSubview:cor4];
         self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 150, SCREEN_WIDTH - 100 , SCREEN_WIDTH-100)  collectionViewLayout:layout];
     }
     else if([self.categoryArr count]==3)
@@ -95,19 +83,6 @@
         int gayW=50;
         int h1 = 120;
         int h2 = SCREEN_WIDTH + 70;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [cor1 setTag:2];[cor2 setTag:2];[cor3 setTag:2];[cor4 setTag:2];
-        [self.view addSubview:cor1];
-        [self.view addSubview:cor2];
-        [self.view addSubview:cor3];
-        [self.view addSubview:cor4];
         
         layout.minimumInteritemSpacing = 5;
         layout.minimumLineSpacing = 25;
@@ -121,19 +96,6 @@
         int gayW=50;
         int h1 = 100;
         int h2 = SCREEN_WIDTH + 98;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [cor1 setTag:2];[cor2 setTag:2];[cor3 setTag:2];[cor4 setTag:2];
-        [self.view addSubview:cor1];
-        [self.view addSubview:cor2];
-        [self.view addSubview:cor3];
-        [self.view addSubview:cor4];
         layout.minimumInteritemSpacing = 5;
         layout.minimumLineSpacing = 20;
         self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 100, SCREEN_WIDTH - 100 , SCREEN_WIDTH-2  )  collectionViewLayout:layout];
@@ -146,19 +108,7 @@
         int gayW=50;
         int h1 = 90;
         int h2 = SCREEN_WIDTH + 130;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [cor1 setTag:2];[cor2 setTag:2];[cor3 setTag:2];[cor4 setTag:2];
-        [self.view addSubview:cor1];
-        [self.view addSubview:cor2];
-        [self.view addSubview:cor3];
-        [self.view addSubview:cor4];
+
         self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 90, SCREEN_WIDTH - 100 , SCREEN_WIDTH+40 )  collectionViewLayout:layout];
         
     }
@@ -169,19 +119,7 @@
         int gayW=50;
         int h1 = 85;
         int h2 = SCREEN_WIDTH + 175;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [cor1 setTag:2];[cor2 setTag:2];[cor3 setTag:2];[cor4 setTag:2];
-        [self.view addSubview:cor1];
-        [self.view addSubview:cor2];
-        [self.view addSubview:cor3];
-        [self.view addSubview:cor4];
+
         self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 85, SCREEN_WIDTH - 100 , SCREEN_WIDTH+90 )  collectionViewLayout:layout];
     }
     else
@@ -191,20 +129,8 @@
         int gayW=30;
         int h1 = 160;
         int h2 = SCREEN_WIDTH + 80;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [cor1 setTag:2];[cor2 setTag:2];[cor3 setTag:2];[cor4 setTag:2];
-        [self.view addSubview:cor1];
-        [self.view addSubview:cor2];
-        [self.view addSubview:cor3];
-        [self.view addSubview:cor4];
-        self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(30, 180, SCREEN_WIDTH - 60 , SCREEN_WIDTH - 85)  collectionViewLayout:layout];
+
+        self.collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(30, 80, SCREEN_WIDTH - 60 , SCREEN_HEIGHT)  collectionViewLayout:layout];
     }
     self.collectionView.backgroundColor=[UIColor clearColor];
     self.collectionView.tag=1;
@@ -273,8 +199,8 @@
         }
         else
         {
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, (SCREEN_WIDTH - 60-60)/6 - 23, (SCREEN_WIDTH - 60-25)/3 - 20, 40)];
-            label.font=[UIFont fontWithName:@"STXinwei" size:18];
+            label = [[UILabel alloc] initWithFrame:CGRectMake(10, (SCREEN_WIDTH - 60-60)/6 -15, (SCREEN_WIDTH - 60-25)/3 - 20, 40)];
+            label.font=[UIFont systemFontOfSize:10];
             label.textColor=[UIColor whiteColor];
         }
         label.text=self.categoryArr[indexPath.row][@"title"];
@@ -285,49 +211,50 @@
         if([self.subCategoryArr count] <= 2)
         {
             int h=(SCREEN_WIDTH-150)/2;
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, h*0.5 - 28, (SCREEN_WIDTH - 110)-20 , 50)];
+            label = [[UILabel alloc] initWithFrame:CGRectMake(0, h*0.5 - 25, h , 50)];
             label.font=[UIFont fontWithName:@"STXinwei" size:32];
             label.textColor=[UIColor whiteColor];
         }
         else if([self.subCategoryArr count] == 3)
         {
             int h=(SCREEN_WIDTH-200)/2;
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, h*0.5 - 28, (SCREEN_WIDTH - 110)-20 , 50)];
+            label = [[UILabel alloc] initWithFrame:CGRectMake(0, h*0.5 - 25, h , 50)];
             label.font=[UIFont fontWithName:@"STXinwei" size:32];
             label.textColor=[UIColor whiteColor];
         }
         else if([self.subCategoryArr count] == 4)
         {
-            int h=(SCREEN_WIDTH-231)/2;
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, h*0.5 - 28, (SCREEN_WIDTH - 110)-20 , 50)];
+            int h=(SCREEN_WIDTH-200)/2;
+            label = [[UILabel alloc] initWithFrame:CGRectMake(0, h*0.5 - 25, h , 50)];
             label.font=[UIFont fontWithName:@"STXinwei" size:32];
             label.textColor=[UIColor whiteColor];
         }
         else if([self.subCategoryArr count] == 5)
         {
-            int h=(SCREEN_WIDTH-240)/2;
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, h*0.5 - 28, (SCREEN_WIDTH - 110)-20 , 50)];
+            int h=(SCREEN_WIDTH-200)/2;
+            label = [[UILabel alloc] initWithFrame:CGRectMake(0, h*0.5 - 25, h , 50)];
             label.font=[UIFont fontWithName:@"STXinwei" size:32];
             label.textColor=[UIColor whiteColor];
         }
         else if([self.subCategoryArr count] == 6)
         {
-            int h=(SCREEN_WIDTH-248)/2;
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, h*0.5 - 28, (SCREEN_WIDTH - 110)-20 , 50)];
+            int h=(SCREEN_WIDTH-200)/2;
+            label = [[UILabel alloc] initWithFrame:CGRectMake(0, h*0.5 - 25, h , 50)];
             label.font=[UIFont fontWithName:@"STXinwei" size:32];
             label.textColor=[UIColor whiteColor];
         }
         else
         {
-            label = [[UILabel alloc] initWithFrame:CGRectMake(10, (SCREEN_WIDTH - 60-60)/6 - 23, (SCREEN_WIDTH - 60-25)/3 - 20, 40)];
-            label.font=[UIFont fontWithName:@"STXinwei" size:18];
+            label = [[UILabel alloc] initWithFrame:CGRectMake(10, (SCREEN_WIDTH - 60-60)/6 - 15, (SCREEN_WIDTH - 60-25)/3 - 20, 40)];
+            label.font=[UIFont systemFontOfSize:10];
             label.textColor=[UIColor whiteColor];
         }
+        label.font=[UIFont systemFontOfSize:10];
         label.text=self.subCategoryArr[indexPath.row][@"title"];
         label.textAlignment=NSTextAlignmentCenter;
     }
     UIImageView* bgImageView = [[UIImageView alloc] initWithFrame:cell.bounds];
-    [bgImageView setImage:[UIImage imageNamed:@"BtnLight"]];
+    [bgImageView setImage:[UIImage imageNamed:@"btnCircle"]];
     for (id subView in cell.contentView.subviews) {
         [subView removeFromSuperview];
     }
@@ -361,34 +288,34 @@
         else
         {
             //return CGSizeMake((SCREEN_WIDTH - 60-25)/3, (SCREEN_WIDTH - 35)/4);
-            return CGSizeMake((SCREEN_WIDTH - 60-25)/3, (SCREEN_WIDTH - 60-60)/3);
+            return CGSizeMake((SCREEN_WIDTH - 60-25)/3, (SCREEN_WIDTH - 60-25)/3);
         }
     }
     else{
         if([self.subCategoryArr count] == 2)
         {
-            return CGSizeMake((SCREEN_WIDTH - 100-10), (SCREEN_WIDTH-150)/2);
+            return CGSizeMake((SCREEN_WIDTH-150)/2, (SCREEN_WIDTH-150)/2);
         }
         else if([self.subCategoryArr count] == 3)
         {
-            return CGSizeMake((SCREEN_WIDTH - 100-10), (SCREEN_WIDTH-200)/2);
+            return CGSizeMake((SCREEN_WIDTH-200)/2, (SCREEN_WIDTH-200)/2);
         }
         else if([self.subCategoryArr count] == 4)
         {
-            return CGSizeMake((SCREEN_WIDTH - 100-10), (SCREEN_WIDTH-231)/2);
+            return CGSizeMake((SCREEN_WIDTH-200)/2, (SCREEN_WIDTH-200)/2);
         }
         else if([self.subCategoryArr count] == 5)
         {
-            return CGSizeMake((SCREEN_WIDTH - 100-10), (SCREEN_WIDTH-240)/2);
+            return CGSizeMake((SCREEN_WIDTH-200)/2, (SCREEN_WIDTH-200)/2);
         }
         else if([self.subCategoryArr count] == 6)
         {
-            return CGSizeMake((SCREEN_WIDTH - 100-10), (SCREEN_WIDTH-248)/2);
+            return CGSizeMake((SCREEN_WIDTH-200)/2, (SCREEN_WIDTH-200)/2);
         }
         else
         {
             //return CGSizeMake((SCREEN_WIDTH - 60-25)/3, (SCREEN_WIDTH - 35)/4);
-            return CGSizeMake((SCREEN_WIDTH - 60-25)/3, (SCREEN_WIDTH - 60-60)/3);
+            return CGSizeMake((SCREEN_WIDTH - 60-25)/3, (SCREEN_WIDTH - 60-25)/3);
         }
     }
 }
@@ -451,19 +378,8 @@
         int gayW=50;
         int h1 = 150;
         int h2 = SCREEN_WIDTH + 50;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [self.additionView addSubview:cor1];
-        [self.additionView addSubview:cor2];
-        [self.additionView addSubview:cor3];
-        [self.additionView addSubview:cor4];
-        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 150, SCREEN_WIDTH - 100 , SCREEN_WIDTH-100)  collectionViewLayout:layout];
+
+        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/4+40, 150, (SCREEN_WIDTH-160)/2 , SCREEN_HEIGHT)  collectionViewLayout:layout];
     }
     else if([self.subCategoryArr count]==3)
     {
@@ -472,19 +388,8 @@
         int gayW=50;
         int h1 = 120;
         int h2 = SCREEN_WIDTH + 70;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [self.additionView addSubview:cor1];
-        [self.additionView addSubview:cor2];
-        [self.additionView addSubview:cor3];
-        [self.additionView addSubview:cor4];
-        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 120, SCREEN_WIDTH - 100 , SCREEN_WIDTH - 50 )  collectionViewLayout:layout];
+
+        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/4+40, 120, (SCREEN_WIDTH-160)/2 , SCREEN_HEIGHT )  collectionViewLayout:layout];
         
     }
     else if([self.subCategoryArr count]==4)
@@ -494,19 +399,8 @@
         int gayW=50;
         int h1 = 100;
         int h2 = SCREEN_WIDTH + 98;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [self.additionView addSubview:cor1];
-        [self.additionView addSubview:cor2];
-        [self.additionView addSubview:cor3];
-        [self.additionView addSubview:cor4];
-        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 100, SCREEN_WIDTH - 100 , SCREEN_WIDTH-2  )  collectionViewLayout:layout];
+
+        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/4+40, 100, (SCREEN_WIDTH-160)/2 , SCREEN_HEIGHT  )  collectionViewLayout:layout];
         
     }
     else if([self.subCategoryArr count]==5)
@@ -516,19 +410,8 @@
         int gayW=50;
         int h1 = 90;
         int h2 = SCREEN_WIDTH + 130;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [self.additionView addSubview:cor1];
-        [self.additionView addSubview:cor2];
-        [self.additionView addSubview:cor3];
-        [self.additionView addSubview:cor4];
-        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 90, SCREEN_WIDTH - 100 , SCREEN_WIDTH+40 )  collectionViewLayout:layout];
+
+        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/4+40, 90, (SCREEN_WIDTH-160)/2 , SCREEN_HEIGHT )  collectionViewLayout:layout];
         
     }
     else if([self.subCategoryArr count]==6)
@@ -538,19 +421,8 @@
         int gayW=50;
         int h1 = 85;
         int h2 = SCREEN_WIDTH + 175;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [self.additionView addSubview:cor1];
-        [self.additionView addSubview:cor2];
-        [self.additionView addSubview:cor3];
-        [self.additionView addSubview:cor4];
-        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(50, 85, SCREEN_WIDTH - 100 , SCREEN_WIDTH+90 )  collectionViewLayout:layout];
+
+        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/4+40, 85, (SCREEN_WIDTH-160)/2 , SCREEN_HEIGHT )  collectionViewLayout:layout];
     }
     else
     {
@@ -559,19 +431,8 @@
         int gayW=30;
         int h1 = 160;
         int h2 = SCREEN_WIDTH + 80;
-        UIImageView * cor1=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h1-15, 15 , 15)];
-        UIImageView * cor2=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h1-15, 15 , 15)];
-        UIImageView * cor3=[[UIImageView alloc] initWithFrame:CGRectMake(gayW-15, h2, 15 , 15)];
-        UIImageView * cor4=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-gayW, h2, 15 , 15)];
-        [cor1 setImage:[UIImage imageNamed:@"cor1"]];
-        [cor2 setImage:[UIImage imageNamed:@"cor2"]];
-        [cor3 setImage:[UIImage imageNamed:@"cor3"]];
-        [cor4 setImage:[UIImage imageNamed:@"cor4"]];
-        [self.additionView addSubview:cor1];
-        [self.additionView addSubview:cor2];
-        [self.additionView addSubview:cor3];
-        [self.additionView addSubview:cor4];
-        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(30, 180, SCREEN_WIDTH - 60 , SCREEN_WIDTH - 85)  collectionViewLayout:layout];
+
+        self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(30, 80, SCREEN_WIDTH - 60 , SCREEN_HEIGHT)  collectionViewLayout:layout];
     }
     //self.subCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(70, 200, SCREEN_WIDTH - 140 , SCREEN_WIDTH - 80)  collectionViewLayout:layout];
     self.subCollectionView.tag=2;
@@ -582,7 +443,6 @@
     [self.subCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"myCell"];
     self.subCollectionView.delegate=self;
     self.subCollectionView.dataSource=self;
-    
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];

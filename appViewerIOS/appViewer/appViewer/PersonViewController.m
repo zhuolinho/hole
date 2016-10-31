@@ -35,7 +35,9 @@
     self.navigationController.navigationBarHidden=NO;
     self.title = @"个人中心";
     //[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];//[[UIBarButtonItem alloc] initWithTitle:@"Back" styleUIBarButtonItemStuleBorderd: target:nil action nil];(UIBarButtonItemStyle)    
-    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBG"]];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"bg-1"]];
+    [self.view addSubview:bgImgView];
 //    self.floatView=[[UIImageView alloc] initWithFrame:CGRectMake(20, 70,  SCREEN_WIDTH-40, SCREEN_HEIGHT-90)];
 //
 //    self.floatView.backgroundColor=[UIColor grayColor];
@@ -53,10 +55,11 @@
     [self.PersonTbl reloadData];
 }
 -(void)InitTbl{
-    PersonTbl = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-    PersonTbl.alpha=0.9;
+    PersonTbl = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) style:UITableViewStyleGrouped];
     PersonTbl.dataSource =self;
     PersonTbl.delegate=self;
+    PersonTbl.backgroundColor = [UIColor clearColor];
+    PersonTbl.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:PersonTbl];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -68,13 +71,14 @@
     if(section == 0)
         return 1;
     else
-        return 6;
+        return 7;
 }
 
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil   ];
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if(indexPath.section == 0)
     {
          self.avaterImg = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100)/2, 20, 100, 100)];
@@ -90,6 +94,7 @@
         
         self.username = [[UILabel alloc] initWithFrame:CGRectMake(10, 125, SCREEN_WIDTH - 20, 20)];
         self.username.textAlignment = NSTextAlignmentCenter;
+        self.username.textColor = [UIColor colorWithRed:155 / 255.0 green:195 / 255.0 blue:192 / 255.0 alpha:1];
         if(![[NSUserDefaults standardUserDefaults] valueForKey:@"username"]){
             self.username.text = @"点击登陆";
         }else{
@@ -100,46 +105,31 @@
     }
     if(indexPath.section == 1)
     {
+        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 52)];
+        img.image = [UIImage imageNamed:@"cellBg"];
+        cell.backgroundView = img;
+        cell.textLabel.textColor = [UIColor colorWithRed:155 / 255.0 green:195 / 255.0 blue:192 / 255.0 alpha:1];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
         if(indexPath.row == 0){
-            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin1"]];
-            cell.textLabel.text=@"更改个人信息";
-            [cell.imageView setFrame:CGRectMake(5, 5,10, 10)];
-            
-            cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            //cell.text = @"更改个人信息";
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.textLabel.text=@"   更改个人信息";
         }
         if(indexPath.row == 1){
-            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin2"]];
-            cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            //cell.text = @"上传文件";
-            cell.text=@"我的关注";
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.textLabel.text=@"   我的关注";
         }
         if(indexPath.row == 4){
-            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin3"]];
-            cell.text = @"关于软件提前看";
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.textLabel.text = @"   关于软件提前看";
         }
-        
         if(indexPath.row == 2){
-            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin2"]];
-            cell.text = @"设置中心";
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.textLabel.text = @"   设置中心";
         }
         if(indexPath.row == 5){
-            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin1"]];
-            cell.text = @"消息中心";
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.textLabel.text = @"   消息中心";
         }
         if(indexPath.row == 6){
-            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin3"]];
-            cell.text = @"退出登陆";
+            cell.textLabel.text = @"   退出登陆";
         }
         if (indexPath.row == 3) {
-            [cell.imageView setImage:[UIImage imageNamed:@"TrdXin1"]];
-            cell.text = @"论坛";
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.textLabel.text = @"   论坛";
         }
 
     }
@@ -149,13 +139,10 @@
     if(indexPath.section==0){
         return 150;
     }
-    return 40;
+    return 52;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if(section == 1)
-        return 30;
-    else
-        return 10;
+    return 10;
 }
 #pragma mark 返回每组头标题名称
 //-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

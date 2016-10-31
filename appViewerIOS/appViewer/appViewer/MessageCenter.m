@@ -23,7 +23,6 @@
     [super viewDidLoad];
     [self InitView];
     [self getData];
-    self.view.backgroundColor=RGB(245, 246, 247);
 }
 -(void)getData{
     NSMutableDictionary * requestDic=[NSMutableDictionary new];
@@ -39,16 +38,19 @@
 }
 -(void)InitView{
     self.automaticallyAdjustsScrollViewInsets=NO;
-    self.view.backgroundColor=[UIColor whiteColor];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"bg-1"]];
+    [self.view addSubview:bgImgView];
     self.titile=[[UILabel alloc] initWithFrame:CGRectMake(100, 80, SCREEN_WIDTH-200, 40)];
     self.titile.text=@"我的消息中心";
+    self.titile.textColor = RGB(39, 217, 179);
     self.titile.textAlignment=NSTextAlignmentCenter;
     [self.view addSubview:self.titile];
-    
     self.likeTableView=[[UITableView alloc] initWithFrame:CGRectMake(15, 130, SCREEN_WIDTH-30, SCREEN_HEIGHT-140)];
     self.likeTableView.layer.cornerRadius=20;
     self.likeTableView.dataSource=self;
     self.likeTableView.delegate=self;
+    self.likeTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.4];
     [self.view addSubview:self.likeTableView];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -59,12 +61,16 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell * cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = self.infArr[indexPath.row][@"title"];
+    cell.textLabel.textColor = RGB(39, 217, 179);
     cell.detailTextLabel.text=self.infArr[indexPath.row][@"description"];
+    cell.detailTextLabel.textColor = RGB(155, 195, 192);
     UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 250, 70, 200, 12)];
     timeLabel.text = self.infArr[indexPath.row][@"createTime"];
     timeLabel.font = [UIFont systemFontOfSize:12];
     timeLabel.textAlignment = NSTextAlignmentRight;
+    timeLabel.textColor = RGB(155, 195, 192);
     [cell addSubview:timeLabel];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

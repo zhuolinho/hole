@@ -184,7 +184,7 @@
         
         UIScrollView *titleScrollView = [[UIScrollView alloc] init];
         
-        titleScrollView.backgroundColor = _titleScrollViewColor?_titleScrollViewColor:[UIColor colorWithWhite:1 alpha:0.7];
+        titleScrollView.backgroundColor = _titleScrollViewColor?_titleScrollViewColor:[UIColor colorWithWhite:1 alpha:0.0];
         
         [self.contentView addSubview:titleScrollView];
         

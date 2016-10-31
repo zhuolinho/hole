@@ -35,9 +35,11 @@
 @implementation ThirdLay
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self InitBG];
     self.automaticallyAdjustsScrollViewInsets=NO;
     [self setBar];
     [self InitData];
+    self.title = @"应用列表";
     darkOflight = false;
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self.scrollView setContentSize:CGSizeMake(0, SCREEN_HEIGHT)];
@@ -65,9 +67,8 @@
         NSLog(@"%@",infDic);
         self.infArr = infDic[@"result"];
         if([self.infArr count] > 3){
-            [self.scrollView setContentSize:CGSizeMake(0, SCREEN_HEIGHT+100*([self.infArr count]-3))];
+            [self.scrollView setContentSize:CGSizeMake(0, SCREEN_HEIGHT+74*([self.infArr count]-3)-350)];
         }
-        [self InitBG];
         [self InitCircle];
         [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(timerAdvanced:) userInfo:nil repeats:YES];
         [self initListView];
@@ -76,37 +77,20 @@
     }];
 }
 -(void)InitBG{
-    UIImageView * fImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-100)];
-    [fImgView setImage:[UIImage imageNamed:@"TrdBg1"]];
-    [self.scrollView addSubview:fImgView];
-    float height = SCREEN_HEIGHT-300;
-    for(int i = 0 ; i + 3 < [self.infArr count];i++){
-        UIImageView * sImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-300+i*100, SCREEN_WIDTH, 100)];
-        [sImgView setImage:[UIImage imageNamed:@"TrdBg2"]];
-        [self.scrollView addSubview:sImgView];
-        height += 100;
-    }
-    if(height < SCREEN_HEIGHT-100)
-    {
-        height = SCREEN_HEIGHT-100;
-    }
-    UIImageView * tImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, height, SCREEN_WIDTH, 100)];
-    [tImgView setImage:[UIImage imageNamed:@"TrdBg3"]];
-    [self.scrollView addSubview:tImgView];
+    UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [bgImgView setImage:[UIImage imageNamed:@"listbg"]];
+    [self.view addSubview:bgImgView];
 }
 -(void)initListView{
     if([self.infArr count] > 3){
         //[self.scrollView setContentSize:CGSizeMake(0, SCREEN_HEIGHT + 100*[self.infArr count]-3)];
-        self.listView=[[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT -350, SCREEN_WIDTH, 100*[self.infArr count]-3) style:UITableViewStyleGrouped];
-        UIView * _view = [[UIView alloc] initWithFrame:CGRectZero];
-        [self.listView setTableHeaderView:_view];
-        self.listView.tableHeaderView.backgroundColor=[UIColor blackColor];
-        self.listView.backgroundColor=[UIColor whiteColor];
+        self.listView=[[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT -350, SCREEN_WIDTH, 74*([self.infArr count]-3)+20) style:UITableViewStyleGrouped];
+        self.listView.backgroundColor=[UIColor clearColor];
         self.listView.delegate=self;
         self.listView.dataSource=self;
         self.listView.alpha=0.9;//self.tableView?.tableHeaderView = UIView.init(frame: CGRectMake(0, 0, 0, 0.01))
-\
         [self.scrollView addSubview:self.listView];
+        self.listView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
 }
 -(void)timerAdvanced:(NSTimer * )timer
@@ -257,24 +241,29 @@
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    //cell.contentView.backgroundColor=[UIColor redColor];
-    [cell.imageView setImage:[UIImage imageNamed:@"test"]];
-    NSLog(@"%@",self.infArr);
-    cell.textLabel.text=self.infArr[indexPath.row+3][@"title"];
-    NSString * cao = self.infArr[indexPath.row+3][@"description"];
-    if(cao == [NSNull null]){
-        //cell.detailTextLabel.text=@"暂无描述";
+//    [cell.imageView setImage:[UIImage imageNamed:@"test"]];
+    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 52)];
+    img.image = [UIImage imageNamed:@"listcell"];
+    cell.backgroundView = img;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.text= [NSString stringWithFormat:@"   %@", self.infArr[indexPath.row+3][@"title"]];
+    cell.textLabel.textColor = RGB(39, 217, 179);
+    cell.detailTextLabel.textColor = RGB(155, 195, 192);
+    NSString * cao = [NSString stringWithFormat:@"     %@", self.infArr[indexPath.row+3][@"description"]];
+    if(!self.infArr[indexPath.row+3][@"description"]){
+        cell.detailTextLabel.text=@"";
     }else{
         cell.detailTextLabel.text=cao;
     }
     cell.imageView.alpha=1;
     cell.alpha=1;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     //cell.contentView.alpha=0;
     return cell;
 
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 74;
 }
 
 #pragma mark 返回每组头标题名称
@@ -311,10 +300,12 @@
     return reSizeImage;
     
 }
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    
-//    return 0;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
 -(void)setBar{
     UIBarButtonItem *barBtn3=[[UIBarButtonItem alloc] initWithTitle:@"更多 " style:UIBarButtonItemStyleDone target:self action:@selector(more:)];
     [self.navigationItem setRightBarButtonItem:barBtn3];
