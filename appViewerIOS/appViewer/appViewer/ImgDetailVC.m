@@ -8,8 +8,8 @@
 
 #import "ImgDetailVC.h"
 #import "head.h"
-#import "CommentView.h"
-#import "CommentView.h"
+#import "AppCommentTableViewController.h"
+
 @interface ImgDetailVC()<UITextFieldDelegate>{
     BOOL display;
 }
@@ -86,9 +86,8 @@
 }
 -(void) bthClick:(UITapGestureRecognizer *)tap
 {
-    CommentView * svc = [[CommentView alloc] init];
-    //svc.commentArr= [NSArray arrayWithObjects:@"one",@"two",@"1", nil];
-    svc.entryID=self.entryID;
+    AppCommentTableViewController *svc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AppCommentTableViewController"];
+    svc.entryID = [NSString stringWithFormat:@"%@", self.entryID];
     self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationController pushViewController:svc animated:YES];
 }

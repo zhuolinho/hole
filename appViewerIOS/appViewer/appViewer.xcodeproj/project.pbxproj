@@ -11,6 +11,7 @@
 		0617A3E31D9CA936002B995F /* XFSegementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617A3E21D9CA936002B995F /* XFSegementView.m */; };
 		06205E2C1DBF4BC200012D1C /* RepublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06205E2B1DBF4BC200012D1C /* RepublicViewController.m */; };
 		063D54E61DA88F3B006D96EE /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D54E51DA88F3B006D96EE /* CommentViewController.m */; };
+		063F1C801DCAE48B002E695E /* EntryCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063F1C7F1DCAE48B002E695E /* EntryCommentViewController.m */; };
 		064D91701D90DCC0002FE14B /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */; };
 		0662714E1D7B083800EF3D8F /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662714D1D7B083800EF3D8F /* API.m */; };
 		066FF0761D8449CB00C3821E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066FF0751D8449CB00C3821E /* WebViewController.m */; };
@@ -19,6 +20,7 @@
 		0676C5C91D9B9509007DDA7B /* LXSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676C5C31D9B9509007DDA7B /* LXSegmentController.m */; };
 		0676C5CA1D9B9509007DDA7B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676C5C61D9B9509007DDA7B /* UIView+Frame.m */; };
 		068426371D991958009E1FA1 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068426361D991958009E1FA1 /* ForumViewController.m */; };
+		068570E81DC9D9DF00B25CF3 /* AppCommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 068570E71DC9D9DF00B25CF3 /* AppCommentTableViewController.m */; };
 		068F04911D7E8C7700B41EBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04901D7E8C7700B41EBA /* CFNetwork.framework */; };
 		068F04931D7E8C8A00B41EBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */; };
 		068F04951D7E8C9600B41EBA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068F04941D7E8C9600B41EBA /* CoreTelephony.framework */; };
@@ -195,6 +197,8 @@
 		06205E2B1DBF4BC200012D1C /* RepublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepublicViewController.m; sourceTree = "<group>"; };
 		063D54E41DA88F3B006D96EE /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		063D54E51DA88F3B006D96EE /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		063F1C7E1DCAE48B002E695E /* EntryCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryCommentViewController.h; sourceTree = "<group>"; };
+		063F1C7F1DCAE48B002E695E /* EntryCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryCommentViewController.m; sourceTree = "<group>"; };
 		064D916D1D90DA98002FE14B /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		064D916F1D90DCC0002FE14B /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		0662714C1D7B083800EF3D8F /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		0676C5C61D9B9509007DDA7B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		068426351D991958009E1FA1 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
 		068426361D991958009E1FA1 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
+		068570E61DC9D9DF00B25CF3 /* AppCommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCommentTableViewController.h; sourceTree = "<group>"; };
+		068570E71DC9D9DF00B25CF3 /* AppCommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCommentTableViewController.m; sourceTree = "<group>"; };
 		068F04901D7E8C7700B41EBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		068F04921D7E8C8A00B41EBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		068F04941D7E8C9600B41EBA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -659,6 +665,8 @@
 				36F2C4EC1D00A88A00893B95 /* LaunchScreen.storyboard */,
 				36565F911D06698500A9D200 /* layer */,
 				36F2C4E71D00A88A00893B95 /* Main.storyboard */,
+				068570E61DC9D9DF00B25CF3 /* AppCommentTableViewController.h */,
+				068570E71DC9D9DF00B25CF3 /* AppCommentTableViewController.m */,
 				36F2C5111D00A8E600893B95 /* MainViewController.h */,
 				36F2C5121D00A8E600893B95 /* MainViewController.m */,
 				36F2C55A1D03486200893B95 /* person */,
@@ -676,6 +684,8 @@
 				06205E2B1DBF4BC200012D1C /* RepublicViewController.m */,
 				069E8E8B1DC089AB00CA89EC /* ForumCommentViewController.h */,
 				069E8E8C1DC089AB00CA89EC /* ForumCommentViewController.m */,
+				063F1C7E1DCAE48B002E695E /* EntryCommentViewController.h */,
+				063F1C7F1DCAE48B002E695E /* EntryCommentViewController.m */,
 			);
 			path = appViewer;
 			sourceTree = "<group>";
@@ -1408,6 +1418,7 @@
 				36F2C6661D03C67F00893B95 /* UIViewController+MBProgressHUD.m in Sources */,
 				36F2C65C1D03C67F00893B95 /* AFURLResponseSerialization.m in Sources */,
 				36F2C4E31D00A88A00893B95 /* AppDelegate.m in Sources */,
+				068570E81DC9D9DF00B25CF3 /* AppCommentTableViewController.m in Sources */,
 				36F2C6E51D03D01400893B95 /* SGGridMenu.m in Sources */,
 				36F2C67E1D03C67F00893B95 /* UIView+MJExtension.m in Sources */,
 				36F2C6CF1D03CA6D00893B95 /* UILabel+YW.m in Sources */,
@@ -1434,6 +1445,7 @@
 				36F2C6961D03C67F00893B95 /* UIImage+WebP.m in Sources */,
 				36F2C6701D03C67F00893B95 /* MJRefreshHeader.m in Sources */,
 				36F2C6CE1D03CA6D00893B95 /* UIImage+ImageWithColor.m in Sources */,
+				063F1C801DCAE48B002E695E /* EntryCommentViewController.m in Sources */,
 				06205E2C1DBF4BC200012D1C /* RepublicViewController.m in Sources */,
 				36F2C6791D03C67F00893B95 /* MJRefreshStateHeader.m in Sources */,
 				36F2C5131D00A8E600893B95 /* MainViewController.m in Sources */,

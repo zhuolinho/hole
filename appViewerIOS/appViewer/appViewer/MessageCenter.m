@@ -9,10 +9,10 @@
 #import "MessageCenter.h"
 #include "head.h"
 #import "HttpHelper.h"
-#import "CommentView.h"
+#import "AppCommentTableViewController.h"
+#import "CommentViewController.h"
 
 @interface MessageCenter()<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic,strong) UILabel * titile;
 @property (nonatomic,strong) UITableView * likeTableView;
 @property (nonatomic,strong) NSMutableArray * infArr;
 @end
@@ -23,6 +23,7 @@
     [super viewDidLoad];
     [self InitView];
     [self getData];
+    self.title=@"我的消息中心";
 }
 -(void)getData{
     NSMutableDictionary * requestDic=[NSMutableDictionary new];
@@ -41,16 +42,11 @@
     UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [bgImgView setImage:[UIImage imageNamed:@"bg-1"]];
     [self.view addSubview:bgImgView];
-    self.titile=[[UILabel alloc] initWithFrame:CGRectMake(100, 80, SCREEN_WIDTH-200, 40)];
-    self.titile.text=@"我的消息中心";
-    self.titile.textColor = RGB(39, 217, 179);
-    self.titile.textAlignment=NSTextAlignmentCenter;
-    [self.view addSubview:self.titile];
-    self.likeTableView=[[UITableView alloc] initWithFrame:CGRectMake(15, 130, SCREEN_WIDTH-30, SCREEN_HEIGHT-140)];
+    self.likeTableView=[[UITableView alloc] initWithFrame:CGRectMake(15, 74, SCREEN_WIDTH-30, SCREEN_HEIGHT-84)];
     self.likeTableView.layer.cornerRadius=20;
     self.likeTableView.dataSource=self;
     self.likeTableView.delegate=self;
-    self.likeTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.4];
+    self.likeTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.0];
     [self.view addSubview:self.likeTableView];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -86,9 +82,13 @@
 //}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_infArr[indexPath.row][@"entryID"]) {
-        CommentView * svc = [[CommentView alloc] init];
-        svc.entryID = _infArr[indexPath.row][@"entryID"];
+        AppCommentTableViewController *svc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AppCommentTableViewController"];
+        svc.entryID = [NSString stringWithFormat:@"%@", _infArr[indexPath.row][@"entryID"]];
         [self.navigationController pushViewController:svc animated:YES];
+    } else if(_infArr[indexPath.row][@"forum"]) {
+        CommentViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CommentViewController"];
+        vc.dic = _infArr[indexPath.row][@"forum"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

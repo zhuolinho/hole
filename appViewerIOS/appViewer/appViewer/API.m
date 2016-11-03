@@ -165,10 +165,22 @@ static NSArray *chiefTeacher;
     [self post:@"getForumComments.action" dic:@{@"forumID": forumID}];
 }
 
+- (void)getEntryComments:(NSString *)entryID {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *yo_token = [ud objectForKey:@"token"];
+    [self post:@"getEntryComments.action" dic:@{@"token": yo_token, @"entryID": entryID}];
+}
+
 - (void)addForum:(NSString *)title description:(NSString *)description categoryID:(NSString *)categoryID picturePaths:(NSString *)picturePaths {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *yo_token = [ud objectForKey:@"token"];
     [self post:@"addForum.action" dic:@{@"token": yo_token, @"title": title, @"description": description, @"categoryID": categoryID, @"picturePaths": picturePaths}];
+}
+
+- (void)addEntryComment:(NSString *)entryID talkerID:(NSString *)talkerID content:(NSString *)content picturePaths:(NSString *)picturePaths {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *yo_token = [ud objectForKey:@"token"];
+    [self post:@"addEntryComment.action" dic:@{@"token": yo_token, @"entryID": entryID, @"talkerID": talkerID, @"content": content, @"picturePaths": picturePaths}];
 }
 
 - (void)uploadImage:(UIImage *)img {
