@@ -205,7 +205,12 @@
             }
         }
         if (indexPath.row == 3) {
-            [myAPI getTheme];
+            if([[NSUserDefaults standardUserDefaults] valueForKey:@"username"]){
+                [myAPI getTheme];
+            }else{
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"我的警告框" message:@"请先登录" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                [alert show];
+            }
         }
     }
 }

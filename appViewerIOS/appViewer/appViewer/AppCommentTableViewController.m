@@ -46,9 +46,14 @@
 }
 
 - (void)addButtonClick {
-    EntryCommentViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"EntryCommentViewController"];
-    vc.entryID = _entryID;
-    [self.navigationController pushViewController:vc animated:YES];
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"username"]){
+        EntryCommentViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"EntryCommentViewController"];
+        vc.entryID = _entryID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"我的警告框" message:@"请先登录" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
 }
 
 #pragma mark - Table view data source
@@ -106,10 +111,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    EntryCommentViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"EntryCommentViewController"];
-    vc.dic = comments[indexPath.section];
-    vc.entryID = _entryID;
-    [self.navigationController pushViewController:vc animated:YES];
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"username"]){
+        EntryCommentViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"EntryCommentViewController"];
+        vc.dic = comments[indexPath.section];
+        vc.entryID = _entryID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"我的警告框" message:@"请先登录" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

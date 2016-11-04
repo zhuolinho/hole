@@ -166,9 +166,7 @@ static NSArray *chiefTeacher;
 }
 
 - (void)getEntryComments:(NSString *)entryID {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString *yo_token = [ud objectForKey:@"token"];
-    [self post:@"getEntryComments.action" dic:@{@"token": yo_token, @"entryID": entryID}];
+    [self post:@"getEntryComments.action" dic:@{@"entryID": entryID}];
 }
 
 - (void)addForum:(NSString *)title description:(NSString *)description categoryID:(NSString *)categoryID picturePaths:(NSString *)picturePaths {

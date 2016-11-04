@@ -9,6 +9,7 @@
 #import "LoginVC.h"
 #import "head.h"
 #import "HttpHelper.h"
+#import "JPUSHService.h"
 @interface LoginVC()<UIAlertViewDelegate>
 @property (nonatomic,strong) UIButton * cancelButton;
 @property (nonatomic,strong) UIButton * confirmButton;
@@ -104,7 +105,7 @@
             else{
                 [[NSUserDefaults standardUserDefaults] setObject:resDic[@"result"][@"username"] forKey:@"username"];
                  [[NSUserDefaults standardUserDefaults] setObject:resDic[@"result"][@"token"] forKey:@"token"];
-                
+                [JPUSHService setAlias:resDic[@"result"][@"username"] callbackSelector:nil object:nil];
                 NSString * s = resDic[@"result"][@"token"];
                 
                 NSLog(@"%@",s);
