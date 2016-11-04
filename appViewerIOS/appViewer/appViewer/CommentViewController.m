@@ -172,7 +172,11 @@
     } else {
         if (indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
-            cell.textLabel.text = [NSString stringWithFormat:@"%@：%@", _dic[@"nickname"], _dic[@"title"]];
+            NSString *temp = [NSString stringWithFormat:@"%@：%@", _dic[@"nickname"], _dic[@"title"]];
+            NSString *nickname = _dic[@"nickname"];
+            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:temp];
+            [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:39 / 255.0 green:217 / 255.0 blue:179 / 255.0 alpha:1] range:NSMakeRange(0, nickname.length)];
+            cell.textLabel.attributedText = str;
         } else if (indexPath.row == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
             UILabel *commentLabel = [cell viewWithTag:111];
@@ -203,6 +207,9 @@
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"TimeCell" forIndexPath:indexPath];
             cell.detailTextLabel.text = _dic[@"createTime"];
+            UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 24.5, self.view.bounds.size.width, 0.5)];
+            lab.backgroundColor = [UIColor colorWithRed:155 / 255.0 green:195 / 255.0 blue:192 / 255.0 alpha:1];
+            [cell addSubview:lab];
         }
 
     }

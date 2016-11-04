@@ -64,8 +64,8 @@
 }
 
 - (void)didReceiveAPIResponseOf:(API *)api data:(NSDictionary *)data {
-    NSLog(@"%f", self.view.bounds.size.width);
     arr = data[@"result"];
+    NSLog(@"%@", arr);
     [_myTableView reloadData];
 }
 
@@ -91,7 +91,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 25;
+        return 51;
     } else if (indexPath.row == 1) {
         CGSize size = [arr[indexPath.section][@"description"]sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(self.view.frame.size.width - 30, 1000) lineBreakMode:NSLineBreakByWordWrapping];
         return size.height + 16;
@@ -106,7 +106,7 @@
         }
         return lines * cellWidth + 8;
     } else {
-        return 25;
+        return 1;
     }
 }
 
@@ -114,11 +114,12 @@
     UITableViewCell *cell;
     if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
-        NSString *temp = [NSString stringWithFormat:@"%@：%@", arr[indexPath.section][@"nickname"], arr[indexPath.section][@"title"]];
-        NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:temp];
-        NSString *nickname = arr[indexPath.section][@"nickname"];
-        [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:39 / 255.0 green:217 / 255.0 blue:179 / 255.0 alpha:1] range:NSMakeRange(0, nickname.length)];
-        cell.textLabel.attributedText = str;
+        UILabel *nameLabel = [cell viewWithTag:111];
+        nameLabel.text = arr[indexPath.section][@"nickname"];
+        UILabel *titleLabel = [cell viewWithTag:222];
+        titleLabel.text = arr[indexPath.section][@"title"];
+        UILabel *timeLabel = [cell viewWithTag:333];
+        timeLabel.text = arr[indexPath.section][@"createTime"];
     } else if (indexPath.row == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
         UILabel *commentLabel = [cell viewWithTag:111];
@@ -148,7 +149,10 @@
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TimeCell" forIndexPath:indexPath];
-        cell.detailTextLabel.text = arr[indexPath.section][@"createTime"];
+        cell.detailTextLabel.text = @"";
+        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0.5)];
+        lab.backgroundColor = [UIColor colorWithRed:155 / 255.0 green:195 / 255.0 blue:192 / 255.0 alpha:1];
+        [cell addSubview:lab];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

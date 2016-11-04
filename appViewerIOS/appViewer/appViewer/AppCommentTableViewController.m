@@ -61,9 +61,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
     if ([comments[section][@"picturePaths"]isEqualToString:@""] || [comments[section][@"picturePaths"]isEqualToString:@"*"]) {
-        return 2;
-    } else {
         return 3;
+    } else {
+        return 4;
     }
 }
 
@@ -92,7 +92,7 @@
         }
         return lines * cellWidth + 8;
     } else {
-        return 25;
+        return 1;
     }
 }
 
@@ -151,7 +151,9 @@
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TimeCell" forIndexPath:indexPath];
-        cell.detailTextLabel.text = comments[indexPath.section][@"createTime"];
+        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0.5)];
+        lab.backgroundColor = [UIColor colorWithRed:155 / 255.0 green:195 / 255.0 blue:192 / 255.0 alpha:1];
+        [cell addSubview:lab];
     }
 
     // Configure the cell...
