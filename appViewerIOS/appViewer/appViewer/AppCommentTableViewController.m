@@ -73,12 +73,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 18;
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 25;
+        return 44;
     } else if (indexPath.row == 1) {
         NSString *str =  comments[indexPath.section][@"content"];
         if (comments[indexPath.section][@"talkerNickname"]) {
@@ -128,6 +132,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
         cell.textLabel.text = comments[indexPath.section][@"nickname"];
         cell.detailTextLabel.text = comments[indexPath.section][@"createTime"];
+        cell.imageView.image = [UIImage imageNamed:@"avatar"];
     } else if (indexPath.row == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
         UILabel *commentLabel = [cell viewWithTag:111];
