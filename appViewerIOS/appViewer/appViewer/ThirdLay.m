@@ -221,6 +221,7 @@
     DetailView * svc = [[DetailView alloc] init];
         NSString * id = self.infArr[tap.view.tag-1][@"id"];
         svc.videoURL = self.infArr[tap.view.tag - 1][@"videoUrl"];
+        svc.tagArr = self.infArr[tap.view.tag - 1][@"tag"];
         svc.entryID=[NSNumber numberWithInt:[id intValue]];
         self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
         [self.navigationController pushViewController:svc animated:YES];
@@ -273,6 +274,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailView * svc = [[DetailView alloc] init];
     NSString * id = self.infArr[indexPath.row+3][@"id"];
+    svc.tagArr = self.infArr[indexPath.row + 3][@"tag"];
     svc.entryID=[NSNumber numberWithInt:[id intValue]];
     self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationController pushViewController:svc animated:YES];

@@ -37,10 +37,11 @@
     NSMutableDictionary * requestDic=[NSMutableDictionary new];
     requestDic[@"offset"]=[NSNumber numberWithInt:0];
     requestDic[@"limit"]=[NSNumber numberWithInt:10];
+    NSLog(@"%@", _tagArr);
     //self.view.backgroundColor=[UIColor whiteColor];//RGBA(220,238,234,190);//RGBA(223,223,224,220);
     requestDic[@"entryID"]=self.entryID;//[NSNumber numberWithInt:179];
     [HttpHelper get:[NSString stringWithFormat:@"%@%@",AppViewUrl,@"getEntrySubs.action"] params:requestDic success:^(id responseObj) {
-        NSLog(@"%@",responseObj);
+//        NSLog(@"%@",responseObj);
         infDic=responseObj;
         NSMutableArray * temp = [NSMutableArray new];
         temp = infDic[@"result"];
@@ -133,14 +134,23 @@
 }
 -(void)InitDetailVersion:(int)num withDic: (NSDictionary *) dic{
     UIImageView * desImgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * num + 10, 10, SCREEN_WIDTH-20, 70)];
-    UITextView * descriptView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-20, 50)];
+    desImgView.userInteractionEnabled = YES;
+    UITextView * descriptView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-20, 70)];
+    descriptView.editable = NO;
     descriptView.backgroundColor = [UIColor clearColor];
     descriptView.textColor = RGB(155, 195, 192);
+    NSString *str = @"";
+    for (int i = 0; i < _tagArr.count; i++) {
+        str = [NSString stringWithFormat:@"%@ %@", str, _tagArr[i]];
+        if (i == _tagArr.count - 1) {
+            str = [NSString stringWithFormat:@"%@\n", str];
+        }
+    }
     NSString * description =infArr[num][@"description"];
     if([description isEqualToString:@""]){
-        descriptView.text=@"暂无描述 ";
+        descriptView.text = [NSString stringWithFormat:@"%@暂无描述", str];
     }else{
-        descriptView.text=infArr[num][@"description"];
+        descriptView.text = [NSString stringWithFormat:@"%@%@", str, infArr[num][@"description"]];
     }
     [desImgView addSubview:descriptView];
     [self.scrollView addSubview:desImgView];
@@ -233,6 +243,7 @@
     [self.view addSubview:self.showHintLabel];
     UIButton *playButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 70, 150, 21, 21)];
     [playButton setBackgroundImage:[UIImage imageNamed:@"播放"] forState:UIControlStateNormal];
+    playButton.hidden = YES;
     if (_videoURL) {
         [self.view addSubview:playButton];
     }
